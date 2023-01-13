@@ -1,27 +1,38 @@
-import styles from './Header.module.scss';
-import Link from 'next/link';
-import Icon from '../Icon/Icon';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import classNames from 'classnames';
+
+import { isArray } from '../../utils';
+import Icon from '../Icon/Icon';
+import IconLink from '../IconLink/IconLink';
+import SearchBar from '../SearchBar/SearchBar';
+import MobileSearchBox from '../MobileSearchBox/MobileSearchBox';
+
+import styles from './Header.module.scss';
 
 const headerContent = {
   promotionText: {
     text: "Free Quà",
     link: "#"
   },
-  shop: {
-    text: "Cửa hàng",
-    link: "#"
-  },
-  shipping: {
-    text: "Kiểm tra đơn hàng",
-    link: "#"
-  },
-  lixicoin: {
-    text: "Lixicoin",
-    link: "#"
-  },
+  quickNaviUpper: [
+    {
+      iconName: 'white-shop-icon',
+      text: "Cửa hàng",
+      link: "#"
+    },
+    {
+      iconName: 'white-shipping',
+      text: "Kiểm tra đơn hàng",
+      link: "#"
+    },
+    {
+      iconName: 'white-coin',
+      text: "Lixicoin",
+      link: "#"
+    }
+  ],
   searchPlaceholder: "Tìm kiếm",
   menuItems: [
     {
@@ -91,11 +102,11 @@ const Header = () => {
   const [searchBox, setSearchBox] = useState(false);
   
   return windowSize[0] > 1040 ? (
-    <div>
+    <div className={styles.header}>
       <div 
         className={classNames(styles.overlay, searchBox && styles.active)}
         onClick={() => setSearchBox(false)}
-      ></div>
+      />
       
       <div className={styles.upper_bar}>
         <div className={styles.upper_bar__wrapper}>
@@ -103,27 +114,17 @@ const Header = () => {
             {headerContent.promotionText.text}
           </Link>
           <div className={styles.right_side__wrapper}>
-            <Link className={styles.item} href={headerContent.shop.link}>
-              <Icon 
-                icon='white-shop-icon'
-                size={16}
+            {isArray(headerContent.quickNaviUpper) && headerContent.quickNaviUpper.map((item: any, index: number) => (
+              <IconLink 
+                key={index}
+                className={styles.item}
+                href={item.link}
+                iconName={item.iconName}
+                iconSize={18}
+                iconBefore={true}
+                text={item.text}
               />
-              {headerContent.shop.text}
-            </Link>
-            <Link className={styles.item} href={headerContent.shipping.link}>
-              <Icon 
-                icon='white-shipping'
-                size={18}
-              />
-              {headerContent.shipping.text}
-            </Link>
-            <Link className={styles.item} href={headerContent.lixicoin.link}>
-              <Icon 
-                icon='white-coin'
-                size={16}
-              />
-              {headerContent.lixicoin.text}
-            </Link>
+            ))}
           </div>
         </div>
       </div>
@@ -139,57 +140,32 @@ const Header = () => {
             />
           </Link>
 
-          <div className={classNames(styles.search_bar, searchBox ? styles.active : "")}>
-            <input 
-              onClick={() => setSearchBox(true)} 
-              type="text" 
-              placeholder={headerContent.searchPlaceholder} 
-            />
-            <div className={styles.icon__wrapper}>
-              <Icon icon="black-search" size={18}/>
-              <span>Tìm kiếm</span>
-            </div>
-            {searchBox && (
-              <div className={styles.search_dial__wrapper}>
-                <div className={styles.history__wrapper}>
-                  <h4>Lịch sử tìm kiếm</h4>
-                  {Array.isArray(searchHistory) && searchHistory.map((item, index) => (
-                    <p className={styles.result} key={index}>
-                      <span>{item}</span>
-                      <Icon
-                        icon='black-45-arrow'
-                        size={14}
-                      />
-                    </p>
-                  ))}
-                </div>
-                <div className={styles.popular__wrapper}>
-                  <h4>Tìm kiếm phổ biến</h4>
-                  <div className={styles.chip__wrapper}>
-                    {Array.isArray(popularTag) && popularTag.map((item, index) => (
-                      <span className={styles.chip} key={index}>
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
+          <SearchBar
+            className={styles.search_bar}
+            placeholder={headerContent.searchPlaceholder}
+            searchHistory={searchHistory}
+            popularTag={popularTag}
+            onFocus={searchBox}
+            toggleSearchBox={() => setSearchBox(true)}
+          />
+            
           <div className={styles.right_side__wrapper}>
             <Link className={styles.item} href="#">
               Đăng nhập / Đăng ký
             </Link>
 
-            <Link className={styles.item} href="#">
-              <Icon icon="black-shopping-bag" size={24}/>
-            </Link>
+            <IconLink 
+              className={styles.item}
+              href="#"
+              iconName="black-shopping-bag"
+              iconSize={24}
+              iconBefore={true}
+            />
           </div>
         </div>
 
         <div className={styles.nav_bar__wrapper}>
-          {Array.isArray(headerContent.menuItems) && headerContent.menuItems.map((item, index) => (
+          {isArray(headerContent.menuItems) && headerContent.menuItems.map((item, index) => (
             <Link className={styles.item} href={item.link} key={index}>
               {item.text}
             </Link>
@@ -209,11 +185,27 @@ const Header = () => {
       </Link>
 
       <div className={styles.icons__wrapper}>
-        <Icon icon="black-search" size={20}/>
-        <Link className={styles.item} href="#">
-          <Icon icon="black-shopping-bag" size={20}/>
-        </Link>
+        <div onClick={() => setSearchBox(true)}>
+          <Icon  icon="black-search" size={20}/>
+        </div>
+        <IconLink 
+          className={styles.item}
+          href="#"
+          iconName="black-shopping-bag"
+          iconSize={24}
+          iconBefore={true}
+        />
       </div>
+      
+      {searchBox && (
+        <MobileSearchBox 
+          searchHistory={searchHistory}
+          popularTag={popularTag}
+          placeholder={headerContent.searchPlaceholder}
+          toggleSearchBox={() => setSearchBox(false)}
+        />
+      )}
+      
     </div>
   )
 }

@@ -3,8 +3,22 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import Header from '../components/Header/Header'
+import AdsCarousel from '../components/AdsCarousel/AdsCarousel'
 
-const inter = Inter({ subsets: ['latin'] })
+const AdsBannerArray = [
+  {
+    img: "",
+    link: "#"
+  },
+  {
+    img: "",
+    link: "#"
+  },
+  {
+    img: "",
+    link: "#"
+  }
+]
 
 export default function Home() {
   return (
@@ -17,6 +31,9 @@ export default function Home() {
       </Head>
       <main>
         <Header></Header>
+        <div>
+          <AdsCarousel items={AdsBannerArray}/>
+        </div>
       </main>
     </>
   )

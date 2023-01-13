@@ -8,10 +8,12 @@ const Icon: React.FC<{
   size: string | number,
   icon: string,
   className?: string
+  onClick?: any,
 }> = props => {
   const { color, size = "100%", icon, className = "" } = props;
   return (
     <IcomoonReact
+      onClick={onclick}
       className={className}
       iconSet={iconSet}
       color={color}
