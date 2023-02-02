@@ -1,0 +1,62 @@
+.ads_banner__wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  position: relative;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.product_showcase__wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.ads__wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  .content__wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    img {
+      border-radius: 12px;
+      width: 100%;
+    }
+  }
+}
+
+.most_search__wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  .content__wrapper {
+    display: flex;
+    gap: 12px;
+    .chip {
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      padding: 24px;
+    }
+  }
+}
+
+.promotion__wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  .content__wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    img {
+      width: 100%;
+    }
+  }
+}
