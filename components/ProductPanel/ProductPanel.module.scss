@@ -1,0 +1,122 @@
+.link {
+  text-decoration: none;
+  max-width: 240px;
+  width: calc(100% / 5);
+  .panel__wrapper {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 360px;
+    margin: 0 24px;
+    .thumbnail__wrapper {
+      position: relative;
+      .sold_out__overlay {
+        position: absolute;
+        top: calc(50% - 14px);
+        left: calc(50% - 44px);
+        font-size: 12px;
+        line-height: 1rem;
+        padding: 4px 16px;
+        border-radius: 6px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        color: #FAFAFA;
+
+      }
+    }
+    .var_gallery {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin: 4px 0;
+      .image__wrapper {
+        width: 15%;
+        border: 1px solid #f0f2f5;
+        position: relative;
+        aspect-ratio: 1;
+        height: auto;
+        display: flex;
+        img {
+          width: 100%;
+          aspect-ratio: 1;
+          height: auto;
+        }
+        .more_item {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          font-size: 12px;
+          line-height: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(0, 0, 0, 0.3);
+          font-weight: 500;
+          color: white;
+        }
+      }
+    }
+    .info__wrapper {
+      margin: 0 24px;
+      font-size: 13px;
+      min-height: 40px;
+      max-height: 40px;
+      line-height: 1.25rem;
+      height: 40px;
+      .brand {
+        font-size: 11px;
+        line-height: 1rem;
+        font-weight: 600;
+      }
+      .title {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        -webkit-line-clamp: 2;
+        font-weight: 300;
+      }
+      .rating {
+        display: flex;
+        gap: 3px;
+        align-items: center;
+        .number {
+          color: #8a8d90;
+        }
+      }
+      .price {
+        margin-top: 5px;
+        .origin_price {
+          font-size: 11px;
+          line-height: 1rem;
+          text-decoration: line-through;
+          color: #8a8d90;
+        }
+        .show_price {
+          display: flex;
+          gap: 6px;
+          font-size: 15px;
+          font-weight: 700;
+          .discount {
+            font-size: 11px;
+            font-weight: 600;
+            background-color: #f5f6f6;
+            color: #97999a;
+            padding: 2px;
+            border-radius: 4px;
+            align-items: flex-start;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,9 +1,317 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+import { isArray } from '../utils'
 
-const inter = Inter({ subsets: ['latin'] })
+import styles from '../styles/Home.module.scss'
+
+import Header from '../components/Header/Header'
+import Carousel from '../components/Carousel/Carousel'
+import Layout from '../components/Layout/Layout'
+import ProductPanel from '../components/ProductPanel/ProductPanel'
+import Footer from '../components/Footer/Footer'
+
+const AdsBannerArray = [
+  {
+    img: "",
+    link: "#"
+  },
+  {
+    img: "",
+    link: "#"
+  },
+  {
+    img: "",
+    link: "#"
+  }
+]
+
+const productInfoArray = [
+  {
+    link: "#",
+    variance: [
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: require('../public/ProductPanelPlaceholder.png'),
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: ""
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+    ],
+    brand: "Halio",
+    title: "Nước Hoa Hồng KURAMOTO BIJIN Sake lees Toning Water 150ml",
+    rating: {
+      star: 3,
+      number: 2
+    },
+    price: "1.512.000",
+    saledPrice: "1.319.000",
+  },
+  {
+    link: "#",
+    variance: [
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: require('../public/ProductPanelPlaceholder.png'),
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: ""
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+    ],
+    brand: "Halio",
+    title: "Nước Hoa Hồng KURAMOTO BIJIN Sake lees Toning Water 150ml",
+    rating: {
+      star: 3,
+      number: 2
+    },
+    price: "1.512.000",
+    saledPrice: "1.319.000",
+  },
+  {
+    link: "#",
+    variance: [
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: require('../public/ProductPanelPlaceholder.png'),
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: ""
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+    ],
+    brand: "Halio",
+    title: "Nước Hoa Hồng KURAMOTO BIJIN Sake lees Toning Water 150ml",
+    rating: {
+      star: 3,
+      number: 2
+    },
+    price: "1.512.000",
+    saledPrice: "1.319.000",
+  },
+  {
+    link: "#",
+    variance: [
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: require('../public/ProductPanelPlaceholder.png'),
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: ""
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+    ],
+    brand: "Halio",
+    title: "Nước Hoa Hồng KURAMOTO BIJIN Sake lees Toning Water 150ml",
+    rating: {
+      star: 3,
+      number: 2
+    },
+    price: "1.512.000",
+    saledPrice: "1.319.000",
+  },
+  {
+    link: "#",
+    variance: [
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: require('../public/ProductPanelPlaceholder.png'),
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: ""
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+    ],
+    brand: "Halio",
+    title: "Nước Hoa Hồng KURAMOTO BIJIN Sake lees Toning Water 150ml",
+    rating: {
+      star: 3,
+      number: 2
+    },
+    price: "1.512.000",
+    saledPrice: "1.319.000",
+  },
+  {
+    link: "#",
+    variance: [
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: require('../public/ProductPanelPlaceholder.png'),
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: false
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: ""
+      },
+      {
+        smallImage: require('../public/ProductPanelPlaceholder.png'),
+        bigImage: "",
+        soldOut: true
+      },
+    ],
+    brand: "Halio",
+    title: "Nước Hoa Hồng KURAMOTO BIJIN Sake lees Toning Water 150ml",
+    rating: {
+      star: 3,
+      number: 2
+    },
+    price: "1.512.000",
+    saledPrice: "1.319.000",
+  },
+]
+
+const adsArray = [
+  {
+    img: "",
+    link: "#"
+  },
+  {
+    img: "",
+    link: "#"
+  }
+]
+
+const mostSearchArray = ["test1", "test2", "test3", "test4", "test5"]
+
+const promotionArray = [
+  {
+    img: "",
+    link: "#"
+  },
+  {
+    img: "",
+    link: "#"
+  },
+  {
+    img: "",
+    link: "#"
+  },
+  {
+    img: "",
+    link: "#"
+  }
+]
 
 export default function Home() {
   return (
@@ -14,109 +322,131 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
+      <main>
+        <Header/>
+        <Carousel className={styles.ads_banner__wrapper} isAuto={true} numberShow={1}>
+          {isArray(AdsBannerArray) && AdsBannerArray.map((item: any, index: number) => (
+            <Link key={index} href={item.link}>
               <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
+                src={item.img || require("../public/AdsBannerPlaceholder.png")}              
+                width={1400}
+                height={600}
+                alt=""
               />
-            </a>
-          </div>
-        </div>
+            </Link>
+          ))}
+        </Carousel>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
+        <Layout 
+          className={styles.product_showcase__wrapper} 
+          isShowMore={false} 
+          title="HOT DEAL"
+        >
+          <Carousel className={styles.track} isAuto={true} numberShow={5}>
+            {isArray(productInfoArray) && productInfoArray.map((item: any, index: number) => (
+              <ProductPanel key={index} productInfo={item} />
+            ))}
+          </Carousel>
+        </Layout>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
+        <Layout 
+          className={styles.product_showcase__wrapper} 
+          isShowMore={true} 
+          title="BOX BÁN CHẠY"
+        >
+          <Carousel className={styles.track} isAuto={true} numberShow={5}>
+            {isArray(productInfoArray) && productInfoArray.map((item: any, index: number) => (
+              <ProductPanel key={index} productInfo={item} />
+            ))}
+          </Carousel>
+        </Layout>
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
+        <Layout
+          className={styles.ads__wrapper}
+          isShowMore={false}
+          contentWrapperClassname={styles.content__wrapper}
+        >
+          {isArray(adsArray) && adsArray.map((item: any, index: any) => (
+            <Link
+              key={index}
+              href={item.link || "#"}
+            >
+              <Image
+                src={item.image || require("../public/AdsPlaceholder.png")}
+                alt="" 
+              />
+            </Link>
+          ))}
+        </Layout>
 
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
+        <Layout 
+          className={styles.product_showcase__wrapper} 
+          isShowMore={true} 
+          title="MUA LẺ MỚI NHẤT"
+        >
+          <Carousel className={styles.track} isAuto={true} numberShow={5}>
+            {isArray(productInfoArray) && productInfoArray.map((item: any, index: number) => (
+              <ProductPanel key={index} productInfo={item} />
+            ))}
+          </Carousel>
+        </Layout>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
+        <Layout 
+          className={styles.product_showcase__wrapper} 
+          isShowMore={true} 
+          title="SẢN PHẨM ĐÃ XEM"
+        >
+          <Carousel className={styles.track} isAuto={true} numberShow={5}>
+            {isArray(productInfoArray) && productInfoArray.map((item: any, index: number) => (
+              <ProductPanel key={index} productInfo={item} />
+            ))}
+          </Carousel>
+        </Layout>
+
+        <Layout
+          className={styles.most_search__wrapper}
+          isShowMore={false}
+          title="TÌM KIẾM NHIỀU NHẤT"
+          contentWrapperClassname={styles.content__wrapper}
+        >
+          {isArray(mostSearchArray) && mostSearchArray.map((item: any, index: any) => (
+            <div className={styles.chip} key={index}>
+              {item}
+            </div>
+          ))}
+        </Layout>
+
+        <Layout 
+          className={styles.product_showcase__wrapper} 
+          isShowMore={true} 
+          title="DÀNH RIÊNG CHO BẠN"
+        >
+          <Carousel className={styles.track} isAuto={true} numberShow={5}>
+            {isArray(productInfoArray) && productInfoArray.slice(0, 4).map((item: any, index: number) => (
+              <ProductPanel key={index} productInfo={item} />
+            ))}
+          </Carousel>
+        </Layout>
+
+        <Layout
+          className={styles.promotion__wrapper}
+          isShowMore={false}
+          title="CHƯƠNG TRÌNH NỔI BẬT"
+          contentWrapperClassname={styles.content__wrapper}
+        >
+          {isArray(promotionArray) && promotionArray.map((item: any, index: any) => (
+            <Link
+              key={index}
+              href={item.link || "#"}
+            >
+              <Image
+                src={item.image || require("../public/VerticalAdsPlaceholder.png")}
+                alt="" 
+              />
+            </Link>
+          ))}
+        </Layout>
+        <Footer className={styles.footer}/>
       </main>
     </>
   )

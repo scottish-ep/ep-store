@@ -1,0 +1,27 @@
+.layout__wrapper {
+  margin-bottom: 36px;
+  .title__wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    h4 {
+      width: 100%;
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 600;
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+    .show_more__wrapper {
+      position: absolute;
+      right: 0;
+      text-decoration: none;
+      color: #8a8d90;
+      font-weight: 500;
+      .arrow {
+        transform: rotate(180deg) translateY(1px);
+        fill: #8a8d90;
+      }
+    }
+  }
+}
