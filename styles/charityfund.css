@@ -1,0 +1,131 @@
+.charityfund-page {
+    width: 100%;
+}
+
+.charityfund-page .section-1-container {
+    width: 100%;
+    background: #24242F;
+}
+
+.charityfund-page .section-1-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 64px 104px 96px;
+}
+
+.charityfund-page .section-1-left{
+    width: 100%;
+    max-width: 786px;
+}
+
+.charityfund-page .section-1-left h1{
+    max-width: 582px;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 56px;
+    color: #FFFFFF;
+}
+
+.charityfund-page .section-1-left .content {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #FFFFFF;
+}
+
+.charityfund-page .section-1-right{
+    width: 100%;
+    max-width: 350px;
+}
+
+
+.charityfund-page .section-1-right .contribution-ranking{
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 30px;
+    padding: 16px 24px;
+}
+
+.charityfund-page .title-ranking{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 56px;
+    color: #303D50;
+    text-align: center;
+}
+
+.charityfund-page  .chart {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.charityfund-page .chart .title-chart {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #303D50;
+    margin-bottom: 18px;
+}
+
+.charityfund-page .chart .chart-column {
+    width: 200px;
+    text-align: center;
+}
+
+.charityfund-page .chart tr:first-of-type{
+    padding: 0;
+}
+
+.charityfund-page .chart td {
+    list-style-type: none;
+    text-align: center;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #303D50;
+
+}
+
+.charityfund-page .section-2-wrapper {
+    padding: 136px 104px 0;
+}
+
+.charityfund-page .section-2-wrapper .section-2-header {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 56px;
+    color: #24242F;
+}
+
+.charityfund-page .section-2-wrapper .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.charityfund-page .section-2-left .content {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: justify;
+    color: #616286;
+    max-width: 739px;
+}
+
+.charityfund-page .section-2-right{
+    width: 100%;
+    max-width: 350px;
+}
+
+
+.charityfund-page .section-2-right .contribution-ranking{
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 30px;
+    padding: 16px 24px;
+}
