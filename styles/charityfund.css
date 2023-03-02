@@ -5,7 +5,24 @@
 .charityfund-page .section-1-container {
     width: 100%;
     background: #24242F;
+    position: relative;
 }
+
+.charityfund-page .section-1-container .left-flower{
+   position: absolute;
+   bottom:  0;
+   left:0;
+   transform: translate(-25%,15%);
+   z-index: 0;
+   opacity: 0.2;
+}
+
+.charityfund-page .section-1-container .right-flower{
+    position: absolute;
+    top: -38px;
+    right: 0;
+    opacity: 0.2;
+ }
 
 .charityfund-page .section-1-wrapper{
     display: flex;
@@ -25,6 +42,7 @@
     font-size: 44px;
     line-height: 56px;
     color: #FFFFFF;
+    margin-top: 0;
 }
 
 .charityfund-page .section-1-left .content {
@@ -37,12 +55,14 @@
 
 .charityfund-page .section-1-right{
     width: 100%;
-    max-width: 350px;
+    max-width: 390px;
+    z-index: 4;
+    padding-top: 16px;
 }
 
 
 .charityfund-page .section-1-right .contribution-ranking{
-    width: 100%;
+
     background: #FFFFFF;
     border-radius: 30px;
     padding: 16px 24px;
@@ -75,6 +95,7 @@
 .charityfund-page .chart .chart-column {
     width: 200px;
     text-align: center;
+    height: 40px;
 }
 
 .charityfund-page .chart tr:first-of-type{
@@ -91,8 +112,18 @@
 
 }
 
+.charityfund-page .section-2-container {
+    background: #FFFFFF;
+    z-index: 4;
+    position: relative
+}
+
 .charityfund-page .section-2-wrapper {
     padding: 136px 104px 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+
 }
 
 .charityfund-page .section-2-wrapper .section-2-header {
@@ -119,13 +150,96 @@
 
 .charityfund-page .section-2-right{
     width: 100%;
-    max-width: 350px;
+    max-width: 390px;
 }
 
 
+
 .charityfund-page .section-2-right .contribution-ranking{
-    width: 100%;
+
     background: #FFFFFF;
     border-radius: 30px;
     padding: 16px 24px;
+}
+
+.charityfund-page .donate-button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 72px;
+
+}
+
+.charityfund-page .donate-button{
+    background: #F9D311;
+    border-radius: 8px;
+    padding: 13px 70px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #020202;
+    cursor: pointer;
+}
+
+.charityfund-page .section-2-wrapper .section-image {
+    margin-top: 65px;
+    margin-bottom: 47px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.charityfund-page .section-2-wrapper .section-image img {
+    width: 46%;
+    margin-bottom: 42px;
+}
+
+.charityfund-page .section-3-container {
+    padding: 0 104px ;
+}
+
+.charityfund-page .section-3-wrapper .charity-nav {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 56px;
+    color: #24242F;
+    padding-bottom: 17px;
+    margin-bottom: 72px;
+    border-bottom: 1px solid #DADAE4;
+}
+
+.charityfund-page .section-3-wrapper .charity-nav svg{
+    position: absolute;
+    right: 150px;
+    transform: translateY(75%);
+}
+
+@media (max-width: 1024px) {
+    .charityfund-page .section-1-wrapper {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .charityfund-page .section-1-right{
+        max-width:none;
+        width: 100%;
+    }
+
+    .charityfund-page .section-2-wrapper .content {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .charityfund-page .section-2-right{
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 769px) {
+    .charityfund-page .section-2-wrapper .section-image img {
+        width: 100%
+    }
 }

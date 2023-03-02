@@ -1,11 +1,16 @@
 import goldMedal from '../public/gold-medal.png' ;
-console.log(goldMedal);
+import alterImg from '../public/alternative-image.png';
+import leftFlower from '../public/left-flower.png';
+import rightFlower from '../public/right-flower.png';
+
 
 export default function CharityFund() {
     return (
         <div className="charityfund-page" >
             <div className="section-1-container">
                 <div className="section-1-wrapper">
+                    <img  className="left-flower" src={leftFlower.src} alt="" />
+                    <img  className="right-flower" src={rightFlower.src} alt="" />
                     <div className="section-1-left">
                         <h1>Đóng góp cho quỹ từ thiện cùng CheriCT</h1>
                         <div className="content">
@@ -65,7 +70,7 @@ export default function CharityFund() {
             </div>
             <div className="section-2-container">
                 <div className="section-2-wrapper">
-                    <h1 className="section-2-header">Quỹ từ thiện trẻ em </h1>\
+                    <h1 className="section-2-header">Quỹ từ thiện trẻ em </h1>
                     <div className="content">
                         <div className="section-2-left">
                             <h3>Người đại diện: Vỹ Lê Yến Vu </h3>
@@ -122,6 +127,46 @@ export default function CharityFund() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className="donate-button-wrapper">
+                        <button className="donate-button">Quyên góp</button>
+                    </div>
+                    <div className="section-image">
+                        <img src={alterImg.src} alt="" />
+                        <img src={alterImg.src} alt="" />
+                        <img src={alterImg.src} alt="" />
+                        <img src={alterImg.src} alt="" />
+                    </div>
+                </div>
+            </div>
+            <div className="section-3-container">
+                <div className="section-3-wrapper">
+                    <div className="charity-nav">
+                        Quỹ từ thiện trẻ em              
+                        <svg width="13" height="23" viewBox="0 0 13 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.375 21.75L11.625 11.5L1.375 1.25" stroke="#9596A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div className="charity-nav">
+                        Quỹ từ thiện trẻ em              
+                        <svg width="13" height="23" viewBox="0 0 13 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.375 21.75L11.625 11.5L1.375 1.25" stroke="#9596A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div> <div className="charity-nav">
+                        Quỹ từ thiện trẻ em              
+                        <svg width="13" height="23" viewBox="0 0 13 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.375 21.75L11.625 11.5L1.375 1.25" stroke="#9596A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div> <div className="charity-nav">
+                        Quỹ từ thiện trẻ em              
+                        <svg width="13" height="23" viewBox="0 0 13 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.375 21.75L11.625 11.5L1.375 1.25" stroke="#9596A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div> <div className="charity-nav">
+                        Quỹ từ thiện trẻ em              
+                        <svg width="13" height="23" viewBox="0 0 13 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.375 21.75L11.625 11.5L1.375 1.25" stroke="#9596A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                 </div>
             </div>
