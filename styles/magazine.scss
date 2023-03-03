@@ -1,7 +1,7 @@
-.img-banner{
+.magazine .img-banner{
     width: 100%;
 }
-.title-1{
+.magazine .title-1{
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
@@ -13,7 +13,7 @@
     width: 100%;
     text-align: center;
 }
-.group-banner-small{
+.magazine .group-banner-small{
     display: flex;
     position: absolute;
     top: 57%;
@@ -22,7 +22,7 @@
     justify-content: center;
     align-items: center;
 }
-.title-small{
+.magazine .title-small{
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 800;
@@ -32,7 +32,7 @@
     text-align: center;
     margin-bottom: 2px;
 }
-.content-small{
+.magazine .content-small{
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
@@ -42,7 +42,7 @@
     color: #303D50;
     margin-top: 2px;
 }
-.group-content{
+.magazine .group-content{
     position: absolute;
     top:75%;
     padding: 32px;
@@ -52,44 +52,44 @@
     border-radius: 0px 8px 8px 0px;
     width: 66%;
 }
-.small-banner{
+.magazine .small-banner{
     width: 85%;
 }
-.section-main{
+.magazine .section-main{
     margin-left: 104px;
     margin-right: 104px;
 }
-.start{
+.magazine .start{
     text-align: start;
 }
-.url{
+.magazine .url{
     text-decoration: none;
     max-width: 596px;
     margin-right: 40px;
 }
-.img{
+.magazine .img{
     width: 100%;
     max-width: 596px;
     object-fit: cover;
 }
-.section01{
+.magazine .section01{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 150px;
 }
-.line{
+.magazine .line{
     border: 1px solid #DADAE4;
     margin-top: 71px;
     margin-bottom: 56px;
 }
-.section02 img{
+.magazine .section02 img{
     max-width: 401px;
 }
-.section02 .url{
+.magazine .section02 .url{
     max-width: 401px;
 }
-.section02 .small-url{
+.magazine .section02 .small-url{
     max-width: 401px;
     margin-right: 14px;
     height: 224px;
@@ -97,12 +97,12 @@
     margin-top: 30px;
     margin-bottom: 40px;
 }
-.section02 .list-url{
+.magazine .section02 .list-url{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-.section02 .content-small{
+.magazine .section02 .content-small{
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
@@ -110,7 +110,7 @@
     line-height: 24px;
     color: #24242F;
 }
-.section02 .title{
+.magazine .section02 .title{
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
@@ -118,7 +118,7 @@
     line-height: 16px;
     color: #303D50;
 }
-.section02 .option{
+.magazine .section02 .option{
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 800;
@@ -131,107 +131,107 @@
     margin-right: 16px;
     margin-top: 8px;
 }
-.section02 .list-option{
+.magazine .section02 .list-option{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 @media (max-width: 1450px) {
-    .section02 .small-url{
+    .magazine .section02 .small-url{
         max-width: 350px;
         margin-right: 10px;
     }
-    .section02 img{
+    .magazine .section02 img{
         max-width: 350px;
     }
 }
 @media (max-width: 1288px) {
-    .section02 .small-url{
+    .magazine .section02 .small-url{
         max-width: 500px;
         margin-right: 10px;
     }
-    .section02 img{
+    .magazine .section02 img{
         max-width: 500px;
     }
 }
 @media (max-width: 1080px) {
-    .section02 .small-url{
+    .magazine .section02 .small-url{
         max-width: 450px;
         margin-right: 10px;
     }
-    .section02 img{
+    .magazine .section02 img{
         max-width: 450px;
     }
 }
 @media (max-width: 993px) {
-    .section02 .list-option{
+    .magazine .section02 .list-option{
         flex-wrap: wrap;
     }
-    .section02 .list-url{
+    .magazine .section02 .list-url{
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .section02 .small-url{
+    .magazine .section02 .small-url{
         max-width: 500px;
         margin-right: 0px;
     }
-    .section02 img{
+    .magazine .section02 img{
         max-width: 500px;
     }
 }
 @media (max-width: 600px) {
-    .section02 .small-url{
+    .magazine .section02 .small-url{
         max-width: 100%;
         margin-right: 0px;
     }
-    .section02 img{
+    .magazine .section02 img{
         max-width: 100%;
     }
 }
 @media (max-width: 1200px) {
-    .section-main{
+    .magazine .section-main{
         margin-left: 50px;
         margin-right: 10px;
     }
 }
 @media (max-width: 1041px) {
-    .title-1{
+    .magazine .title-1{
         top: 20%;
     }
-    .group-banner-small{
+    .magazine .group-banner-small{
         top:34%;
     }
 }
 @media (max-width: 992px) {
-    .section01{
+    .magazine .section01{
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .section-main{
+    .magazine .section-main{
         margin-left: 50px;
         margin-right: 50px;
     }
-    .url{
+    .magazine .url{
         margin-right: 0px;
     }
-    .start{
+    .magazine .start{
         text-align: center;
     }
 }
 @media (max-width: 768px) {
-    .section01{
+    .magazine .section01{
         margin-top: 250px;
     }
 }
 @media (max-width: 705px) {
-    .title-1{
+    .magazine .title-1{
         top: 14%;
     }
 }
 @media (max-width: 500px) {
-    .section01{
+    .magazine .section01{
         margin-top: 350px;
     }
 }
