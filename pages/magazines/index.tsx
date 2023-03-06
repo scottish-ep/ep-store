@@ -1,17 +1,18 @@
 import Head from "next/head";
-import Pagination from "../components/Pagination/Pagination";
+import Pagination from "../../components/Pagination/Pagination";
 import Image from "next/image";
 import Link from "next/link";
-import { isArray } from "../utils";
+import { isArray } from "../../utils";
 import { useRouter } from "next/router";
+import styles from '../../styles/magazine.module.scss'
 // import  '../styles/magazine.scss'
-import bigbanner from "../public/group 3065.png";
-import smallbanner from "../public/content.png";
-import Header from "../components/Header/Header";
-import Carousel from "../components/Carousel/Carousel";
-import Layout from "../components/Layout/Layout";
-import ProductPanel from "../components/ProductPanel/ProductPanel";
-import Footer from "../components/Footer/Footer";
+import bigbanner from "../../public/group 3065.png";
+import smallbanner from "../../public/content.png";
+import Header from "../../components/Header/Header";
+import Carousel from "../../components/Carousel/Carousel";
+import Layout from "../../components/Layout/Layout";
+import ProductPanel from "../../components/ProductPanel/ProductPanel";
+import Footer from "../../components/Footer/Footer";
 import { width } from "@mui/system";
 import classNames from "classnames";
 const adsArray = [
@@ -33,8 +34,8 @@ const adsArray = [
 
 const renderContent = () => {
   return (
-    <div className="small-url">
-      <Link className="url" href="#">
+    <div className={styles.small_url}>
+      <Link className={styles.url} href="#">
         <img src={smallbanner.src} alt="" />
         <p className={classNames("title-small start")}>BEAUTY</p>
         <h4 className="content-small start">
@@ -59,134 +60,53 @@ export default function magazine() {
         <Header />
         <Layout>
           <div>
-            <img className="img-banner" src={bigbanner.src} alt="" />
-            <h1 className="title-1">Đẹp xinh lung linh, Tự tin khoe sắc</h1>
-            <div className="group-banner-small">
-              <img className="small-banner" src={smallbanner.src} alt="" />
-              <div className="group-content">
-                <p className="title-small">BEAUTY</p>
-                <h2 className="content-small">
+            <Image
+              src={require("../../public/group 3065.png")}
+              alt=""
+              className={styles.img_banner}
+            />
+            <h1 className={styles.title_1}>Đẹp xinh lung linh, Tự tin khoe sắc</h1>
+            <div className={styles.group_banner_small}>
+              <Image
+                src={require("../../public/content.png")}
+                alt=""
+                className={styles.small_banner}
+              />
+              <div className={styles.group_content}>
+                <p className={styles.title_small}>BEAUTY</p>
+                <h2 className={styles.content_small}>
                   Daydreaming in Japan: a colouring book inspired by the streets
                   of Nippon
                 </h2>
               </div>
             </div>
           </div>
-          <div className="section-main">
-            <div className="section01">
+          <div className={styles.section_main}>
+            <div className={styles.section01}>
               {isArray(adsArray) &&
                 adsArray.map((item: any, index: number) => (
-                  <Link className="url" key={index} href={item.link}>
+                  <Link className={styles.url} key={index} href={item.link}>
                     <Image
-                      src={item.img || require("../public/content.png")}
+                      src={item.img || require("../../public/content.png")}
                       alt=""
-                      className="img"
+                      className={styles.img}
                     />
                     <p className="title-small start">{item.title}</p>
                     <h4 className="content-small start">{item.content}</h4>
                   </Link>
                 ))}
             </div>
-            <div className="line"></div>
+            <div className={styles.line}></div>
             <div></div>
-            <div className="section02">
-              <p className="title">CHUYÊN MỤC</p>
-              <div className="list-option">
-                <div className="option">Beauty</div>
-                <div className="option">Bài viết hot nhất</div>
-                <div className="option">Chăm sóc da mặt</div>
+            <div className={styles.section02}>
+              <p className={styles.title}>CHUYÊN MỤC</p>
+              <div className={styles.list_option}>
+                <div className={styles.option}>Beauty</div>
+                <div className={styles.option}>Bài viết hot nhất</div>
+                <div className={styles.option}>Chăm sóc da mặt</div>
               </div>
-              <div className="list-url">
-                <div className="small-url">
-                  <Link className="url" href="#">
-                    <img src={smallbanner.src} alt="" />
-                    <p className="title-small start">BEAUTY</p>
-                    <h4 className="content-small start">
-                      Daydreaming in Japan: a colouring book inspired by the
-                      streets of Nippon
-                    </h4>
-                  </Link>
-                </div>
-                <div className="small-url">
-                  <Link className="url" href="#">
-                    <img src={smallbanner.src} alt="" />
-                    <p className="title-small start">BEAUTY</p>
-                    <h4 className="content-small start">
-                      Daydreaming in Japan: a colouring book inspired by the
-                      streets of Nippon
-                    </h4>
-                  </Link>
-                </div>
-                <div className="small-url">
-                  <Link className="url" href="#">
-                    <img src={smallbanner.src} alt="" />
-                    <p className="title-small start">BEAUTY</p>
-                    <h4 className="content-small start">
-                      Daydreaming in Japan: a colouring book inspired by the
-                      streets of Nippon
-                    </h4>
-                  </Link>
-                </div>
-                <div className="small-url">
-                  <Link className="url" href="#">
-                    <img src={smallbanner.src} alt="" />
-                    <p className="title-small start">BEAUTY</p>
-                    <h4 className="content-small start">
-                      Daydreaming in Japan: a colouring book inspired by the
-                      streets of Nippon
-                    </h4>
-                  </Link>
-                </div>
-                <div className="small-url">
-                  <Link className="url" href="#">
-                    <img src={smallbanner.src} alt="" />
-                    <p className="title-small start">BEAUTY</p>
-                    <h4 className="content-small start">
-                      Daydreaming in Japan: a colouring book inspired by the
-                      streets of Nippon
-                    </h4>
-                  </Link>
-                </div>
-                <div className="small-url">
-                  <Link className="url" href="#">
-                    <img src={smallbanner.src} alt="" />
-                    <p className="title-small start">BEAUTY</p>
-                    <h4 className="content-small start">
-                      Daydreaming in Japan: a colouring book inspired by the
-                      streets of Nippon
-                    </h4>
-                  </Link>
-                </div>
-                <div className="small-url">
-                  <Link className="url" href="#">
-                    <img src={smallbanner.src} alt="" />
-                    <p className="title-small start">BEAUTY</p>
-                    <h4 className="content-small start">
-                      Daydreaming in Japan: a colouring book inspired by the
-                      streets of Nippon
-                    </h4>
-                  </Link>
-                </div>
-                <div className="small-url">
-                  <Link className="url" href="#">
-                    <img src={smallbanner.src} alt="" />
-                    <p className="title-small start">BEAUTY</p>
-                    <h4 className="content-small start">
-                      Daydreaming in Japan: a colouring book inspired by the
-                      streets of Nippon
-                    </h4>
-                  </Link>
-                </div>
-                <div className="small-url">
-                  <Link className="url" href="#">
-                    <img src={smallbanner.src} alt="" />
-                    <p className="title-small start">BEAUTY</p>
-                    <h4 className="content-small start">
-                      Daydreaming in Japan: a colouring book inspired by the
-                      streets of Nippon
-                    </h4>
-                  </Link>
-                </div>
+              <div className={styles.list_url}>
+                {renderContent()}
               </div>
             </div>
           </div>

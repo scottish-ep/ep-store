@@ -1,20 +1,43 @@
 import Head from "next/head";
+import styles from '../../styles/detail.module.scss'
 import Pagination from "../../components/Pagination/Pagination";
 import Image from "next/image";
 import Link from "next/link";
 import { isArray } from "../../utils";
 import { useRouter } from "next/router";
-// import  '../styles/magazine.scss'
-import bigbanner from "../../public/group 3065.png";
-import calendar from "../../public/calendar.png";
-import eye from "../../public/eye.png";
-import vector from "../../public/vector.png";
-import makeup from "../../public/rectangle 559.png";
-import bannermakeup from "../../public/image 33.png";
-import smallbanner from "../../public/content.png";
 import Header from "../../components/Header/Header";
 import Layout from "../../components/Layout/Layout";
+const options = Array(3).fill({
+  name : "Dưỡng trắng",
+})
+const renderOption = function (options) {
+  return (
+      options.map((option,index) => (
+        <div className={styles.option_tag}>{option.name}</div>
+          )
+      )
+  );
+}
+const choices = Array(3).fill({
+  text: "Nước hoa Atelier Cologne Iris Rebelle Cologne Absolue Pure Perfume",
 
+})
+const renderChoices = function (choices) {
+  return (
+      choices.map((choice,index) => (
+        <div>
+                <Link className={styles.url} href="#">
+                  <Image className={styles.img_makeup} src={require("../../public/rectangle 559.png")} alt="" />
+                  <p>
+                    {choice.text}
+                  </p>
+                  <Image className={styles.img_vector} src={require("../../public/vector.png")} alt="" />
+                </Link>
+              </div>
+          )
+      )
+  );
+}
 export default function DetailMagazine() {
   const router = useRouter();
   const query = router.query;
@@ -29,31 +52,31 @@ export default function DetailMagazine() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="detail">
+      <main className={styles.detail}>
         <Header />
         <Layout>
           <div>
-            <img className="img-banner" src={bigbanner.src} alt="" />
+            <Image className={styles.img_banner} src={require("../../public/group 3065.png")} alt="" />
           </div>
-          <div className="container">
-            <div className="block-small">
-              <img className="img-banner-small" src={smallbanner.src} alt="" />
+          <div className={styles.container}>
+            <div className={styles.block_small}>
+              <Image className={styles.img_banner_small} src={require("../../public/content.png")} alt="" />
             </div>
-            <h1 className="title-main">
+            <h1 className={styles.title_main}>
               3 tiêu chuẩn lựa chọn tẩy trang cho da nhạy cảm hỗn hợp
             </h1>
-            <div className="list-info">
-              <div className="info">
-                <img className="calendar-icon" src={calendar.src} alt="" />
+            <div className={styles.list_info}>
+              <div className={styles.info}>
+                <Image className={styles.calendar_icon} src={require("../../public/calendar.png")} alt="" />
                 <p>Jul 08 2018</p>
               </div>
-              <div className="info">
-                <img className="eye-icon" src={eye.src} alt="" />
+              <div className={styles.info}>
+                <Image className={styles.eye_icon} src={require("../../public/eye.png")} alt="" />
                 <p>Jul 08 2018</p>
               </div>
             </div>
-            <div className="section-1">
-              <div className="line"></div>
+            <div className={styles.section_1}>
+              <div className={styles.line}></div>
               <p>
                 Nóng, rát, nổi mụn, da nổi mẩn đỏ hoặc ngứa sưng là tình trạng
                 thường thấy của da nhạy cảm khi sử dụng các sản phẩm tẩy trang
@@ -64,10 +87,10 @@ export default function DetailMagazine() {
               </p>
             </div>
             <div>
-              <h3 className="title-small">
+              <h3 className={styles.title_small}>
                 1. Tránh xa các thành phần gây kích ứng
               </h3>
-              <p className="content-small">
+              <p className={styles.content_small}>
                 Đối với làn da nhạy cảm, điều quan trọng nhất chính là hãy luôn
                 quan tâm đến thành phần trong sản phẩm tẩy trang để tránh bị
                 kích ứng. Bạn sẽ khá bất ngờ khi nhìn thấy một số thành phần phổ
@@ -78,49 +101,20 @@ export default function DetailMagazine() {
                 phẩm chứa những chất trên để “đảm bảo an toàn” cho làn da nhạy
                 cảm.
               </p>
-              <img
-                className="img-banner-makeup"
-                src={bannermakeup.src}
+              <Image
+                className={styles.img_banner_makeup}
+                src={require("../../public/image 33.png").src}
                 alt=""
               />
             </div>
-            <div className="list-url">
-              <div>
-                <Link className="url" href="#">
-                  <img className="img-makeup" src={makeup.src} alt="" />
-                  <p>
-                    Nước hoa Atelier Cologne Iris Rebelle Cologne Absolue Pure
-                    Perfume
-                  </p>
-                  <img className="img-vector" src={vector.src} alt="" />
-                </Link>
-              </div>
-              <div>
-                <Link className="url" href="#">
-                  <img className="img-makeup" src={makeup.src} alt="" />
-                  <p>
-                    Nước hoa Atelier Cologne Iris Rebelle Cologne Absolue Pure
-                    Perfume
-                  </p>
-                  <img className="img-vector" src={vector.src} alt="" />
-                </Link>
-              </div>
-              <div>
-                <Link className="url" href="#">
-                  <img className="img-makeup" src={makeup.src} alt="" />
-                  <p>
-                    Nước hoa Atelier Cologne Iris Rebelle Cologne Absolue Pure
-                    Perfume
-                  </p>
-                  <img className="img-vector" src={vector.src} alt="" />
-                </Link>
-              </div>
+            <div className={styles.list_url}>
+              {renderChoices(choices)}
             </div>
             <div>
-              <h3 className="title-small">
+              <h3 className={styles.title_small}>
                 2. Tránh xa các thành phần gây kích ứng
               </h3>
-              <p className="content-small">
+              <p className={styles.content_small}>
                 Đối với làn da nhạy cảm, điều quan trọng nhất chính là hãy luôn
                 quan tâm đến thành phần trong sản phẩm tẩy trang để tránh bị
                 kích ứng. Bạn sẽ khá bất ngờ khi nhìn thấy một số thành phần phổ
@@ -131,17 +125,15 @@ export default function DetailMagazine() {
                 phẩm chứa những chất trên để “đảm bảo an toàn” cho làn da nhạy
                 cảm.
               </p>
-              <img
-                className="img-banner-makeup"
-                src={bannermakeup.src}
+              <Image
+                className={styles.img_banner_makeup}
+                src={require("../../public/image 33.png").src}
                 alt=""
               />
             </div>
-            <p className="tag">TAG</p>
-            <div className="list-tag">
-              <div className="option-tag">Dưỡng trắng</div>
-              <div className="option-tag">Dưỡng trắng</div>
-              <div className="option-tag">Dưỡng trắng</div>
+            <p className={styles.tag}>TAG</p>
+            <div className={styles.list_tag}>
+              {renderOption(options)}
             </div>
           </div>
         </Layout>
