@@ -24,15 +24,17 @@ const funds= Array(4).fill({
     content: "Đối với làn da nhạy cảm, điều quan trọng nhất chính là hãy luôn quan tâm đến thành phần trong sản phẩm tẩy trang để tránh bị kích ứng. Bạn sẽ khá bất ngờ khi nhìn thấy một số thành phần phổ biến như alcohol (cồn), paraben (chất bảo quản), mineral oil (dầu khoáng), fragrance (hương liệu),... sẽ có thể là nguyên nhân gây ra tình trạng kích ứng, mẩn đỏ cho làn da nhạy cảm. Vì thế, hãy kiểm tra thật kỹ bảng thành phần và loại ngay các sản phẩm chứa những chất trên để “đảm bảo an toàn” cho làn da nhạy cảm.Đối với làn da nhạy cảm, điều quan trọng nhất chính là hãy luôn quan tâm đến thành phần trong sản phẩm tẩy trang để tránh bị kích ứng. Bạn sẽ khá bất ngờ khi nhìn thấy một số thành phần phổ biến như alcohol (cồn), paraben (chất bảo quản), mineral oil (dầu khoáng), fragrance (hương liệu),... sẽ có thể là nguyên nhân gây ra tình trạng kích ứng, mẩn đỏ cho làn da nhạy cảm. Vì thế, hãy kiểm tra thật kỹ bảng thành phần và loại ngay các sản phẩm chứa những chất trên để “đảm bảo an toàn” cho làn da nhạy cảm."
 })
 
+const images= Array(4).fill({
+    src: alterImg.src,
+})
+
 const renderUser = function(user: {name: string, donate: string | number}) {
     return (
-        <>
         <tr>
             <td className={styles.chart_column}><img src={goldMedal.src} alt="" /></td>
             <td className={styles.chart_column}>{user.name}</td>
             <td className={styles.chart_column}>{user.donate}</td>
         </tr>
-        </>
     )
 }
 
@@ -51,8 +53,8 @@ const renderUsersChart = function(users: userInfo[]) {
 }
 const renderFund = function (funds : fundInfo[]) {
     return (
-        funds.map(fund => (
-            <div className={styles.charity_nav}>
+        funds.map((fund,index) => (
+            <div className={styles.charity_nav} key={index}>
                 {fund.title}           
                 <svg width="13" height="23" viewBox="0 0 13 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.375 21.75L11.625 11.5L1.375 1.25" stroke="#9596A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -63,6 +65,20 @@ const renderFund = function (funds : fundInfo[]) {
     );
 }
 
+
+const renderImages= function(images) {
+
+    return  (
+        images.map((image,index) => (
+            <Image 
+                src={image.src}              
+                width={396}
+                height={342}
+                alt=""
+            />
+        ))
+    )
+}
 
 export default function CharityFund() {
     return (
@@ -128,10 +144,7 @@ export default function CharityFund() {
                         <button className={styles.donate_button}>Quyên góp</button>
                     </div>
                     <div className={styles.section_image}>
-                        <img src={alterImg.src} alt="" />
-                        <img src={alterImg.src} alt="" />
-                        <img src={alterImg.src} alt="" />
-                        <img src={alterImg.src} alt="" />
+                        {renderImages(images)}
                     </div>
                 </div>
             </div>
