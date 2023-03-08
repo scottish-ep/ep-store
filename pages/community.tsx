@@ -127,12 +127,53 @@ const commentsData =[
             'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
             'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
         ]
+    },
+    {
+        user: {
+            name: 'Eastplayer',
+            avatar: 'https://kiemtientuweb.com/ckfinder/userfiles/images/avatar-fb/avatar-fb-1.jpg'
+        },
+        forUser: {
+            name: 'Super Volcanic Pore Clay Duo Set 380 mL',
+            avatar: 'https://kiemtientuweb.com/ckfinder/userfiles/images/avatar-fb/avatar-fb-1.jpg'
+        },
+        vote: 5,
+        date: '11/11/2021',
+        content:'Vừa nhận được hàng là mình dùng ngay, trải nghiệm rất đã, mới sử dụng nên chưa biết kết quả. Nhưng sản phẩm của halio khỏi bàn rồi mình.',
+        listImage: [
+            'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
+            'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
+        ]
     }
 ]
+
+const renderComments = function(comments) {
+    return (
+        comments.map(comment => (
+            <Blog commentData={comment}/>
+        ))
+    );
+}
 export default function Community() {
     return (
         <div className={styles.community_page}>
             <div className={styles.community_page_wrapper}>
+                <div className={styles.left_flower}>
+                    <Image
+                            src={require('../public/left-flower.png')}              
+                            width={396}
+                            height={342}
+                            alt=""
+                    />
+                </div>
+                <div className={styles.right_flower}>
+                    <Image
+                        src={require('../public/right-flower.png')}              
+                        width={335}
+                        height={289}
+                        alt=""
+                    />
+                </div>
                 <div className={styles.left_community}>
                     {renderLeftSidebar(leftSidebarTop,leftSidebarBot)}
                 </div>
@@ -160,80 +201,6 @@ export default function Community() {
                         </div>
                     </div>
                     <div className={styles.blog_comment_wrapper}>
-                        {/* <div className={styles.blog_comment}>
-                            <div className={styles.comment_header}>
-                                <div className={styles.comment_header_left}>
-                                <Image 
-                                    src={require('../public/test-avt.png')}              
-                                    width={61}
-                                    height={61}
-                                    alt=""
-                                />
-                                </div>
-                                <div className={styles.comment_header_right}>
-                                    <div className={styles.comment_info}>
-                                        <h5>Eastplayers
-                                        <span> đã viết đánh giá cho</span>
-                                        </h5>
-                                        <h5>Super Volcanic Pore Clay Duo Set 380 mL</h5>
-                                    </div>
-                                    <div className={styles.vote_date}>
-                                        <div className={styles.star}>
-                                            <Image 
-                                               src={require('../public/star.png')}              
-                                               width={15}
-                                               height={14}
-                                               alt=""
-                                            />
-                                            <Image 
-                                               src={require('../public/star.png')}              
-                                               width={15}
-                                               height={14}
-                                               alt=""
-                                            />
-                                            <Image 
-                                               src={require('../public/star.png')}              
-                                               width={15}
-                                               height={14}
-                                               alt=""
-                                            />
-                                            <Image 
-                                               src={require('../public/star.png')}              
-                                               width={15}
-                                               height={14}
-                                               alt=""
-                                            />
-                                            <Image 
-                                               src={require('../public/star.png')}              
-                                               width={15}
-                                               height={14}
-                                               alt=""
-                                            />
-                                        </div>
-                                        <div className={styles.date}>
-                                            11/11/2021
-                                        </div>
-                                    </div>
-                                    <div className={styles.comment_content}>
-                                        Vừa nhận được hàng là mình dùng ngay, trải nghiệm rất đã, mới sử dụng nên chưa biết kết quả. Nhưng sản phẩm của halio khỏi bàn rồi mình.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.comment_images}>
-                                <Image 
-                                    src={require('../public/test-img-content.png')}              
-                                    width={240}
-                                    height={181}
-                                    alt=""
-                                />
-                                <Image 
-                                    src={require('../public/test-img-content.png')}              
-                                    width={240}
-                                    height={181}
-                                    alt=""
-                                />
-                            </div>
-                        </div> */}
                         <Blog commentData={commentsData[0]}/>
                     </div>
                 </div>
