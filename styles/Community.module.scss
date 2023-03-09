@@ -1,28 +1,27 @@
 .community_page {
-    position: relative;
-    .left_flower{
-        position: absolute;
-        top: 360px;
-        left: calc(50vw + 527px/2 + 60px );
-        transform: translateX(-50%);
-        opacity: 0.4;
-        z-index: 1;
-    }
-    .right_flower{
-        position: absolute;
-        top: -38px;
-        right: calc(50vw + 527px/2 + 60px );
-        transform: translateX(50%);
-        opacity: 0.4;
-        z-index: 1;
-    }
     .community_page_wrapper{
-        padding-top: 72px;
         width: 100%;
+        padding-top: 72px;
         display: flex;
         justify-content: center;
         background-color: #fafafa;
         position: relative;
+        .left_flower{
+            position: absolute;
+            top: 360px;
+            left: calc(50vw + 527px/2 + 60px );
+            transform: translateX(-50%);
+            opacity: 0.4;
+            z-index: 1;
+        }
+        .right_flower{
+            position: absolute;
+            top: -38px;
+            right: calc(50vw + 527px/2 + 60px );
+            transform: translateX(50%);
+            opacity: 0.4;
+            z-index: 1;
+        }
         .right_community {
             position: fixed;
             left: calc(50vw + 527px/2 + 81px);
@@ -90,7 +89,6 @@
             .community_show_post {
                 width: 100%;
                 .post_choose{
-                    
                     h4 {
                         font-weight: 700;
                         font-size: 16px;
@@ -104,9 +102,6 @@
                         justify-content: space-between;
                         gap: 8px;
                         .item {
-                            &:hover {
-                                background-color: #F9D311;
-                            }
                             width: 100px;
                             display: flex;
                             flex-direction: column;

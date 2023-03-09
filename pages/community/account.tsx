@@ -1,7 +1,6 @@
-import styles from '../../styles/CommunityAccount.module.scss';
+import styles from '../../styles/Community-Account.module.scss';
 import Image from 'next/image';
 import Blog from '../../components/Blog/Blog';
-import React, { useState ,useEffect} from 'react';
 
 
 const leftSidebarTop = [
@@ -93,6 +92,24 @@ const renderHastags = function (hastags) {
     )
 }
 
+const renderMenu = function(options) {
+    return (
+
+        options.map((option) => (
+            <div className={styles.item}>
+                <Image 
+                    src={require('../../public/test-avt.png')}              
+                    width={33}
+                    height={33}
+                    alt=""
+                />
+                <p>{option.title}</p>
+            </div>
+        ))
+    )
+}
+
+
 const commentsData =[
     {
         user: {
@@ -130,14 +147,6 @@ const commentsData =[
     }
 ]
 
-const account = {
-    name:'Eastplayer',
-    role:'memmber',
-    address:'Hồ Chí Minh',
-    join:'11/11/2023',
-    listBlog: [0,0,0],
-}
-
 const renderComments = function(comments) {
     return (
         comments.map(comment => (
@@ -145,56 +154,6 @@ const renderComments = function(comments) {
         ))
     );
 }
-
-const renderAccountInfo = function (data) {
-    return (
-        <div className={styles.user_info_box}>
-            <Image 
-                src={require('../../public/test-avt.png')}              
-                width={64}
-                height={64}
-                alt=""
-            />
-            <div className={styles.user_info_right} >
-                <h4>{data.name}</h4>
-                <div className={styles.user_address}>
-                    {data.address} - {data.join}
-                </div>
-                <div className={styles.user_role}>
-                    #{data.role}
-                </div>
-                <div className={styles.user_blog_info_wrapper}>
-                    <div className={styles.user_blog_info_wrapper}>
-                        <div className={styles.blog_info}>
-                            <h3>{data.listBlog[0]}</h3>
-                            <p>bài viết</p>
-                        </div>
-                    </div>
-                    <div className={styles.user_blog_info_wrapper}>
-                        <div className={styles.blog_info}>
-                            <h3>{data.listBlog[1]}</h3>
-                            <p>bài viết</p>
-                        </div>
-                    </div>
-                    <div className={styles.user_blog_info_wrapper}>
-                        <div className={styles.blog_info}>
-                            <h3>{data.listBlog[2]}</h3>
-                            <p>bài viết</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-// const [currentOpt, setCurrentOpt] = useState(1);
-// useEffect(() => {
-//     const handleClick = (opt) => {
-//         setCurrentOpt(opt)
-//     }
-// },[currentOpt])
-
 export default function Community() {
     return (
         <div className={styles.community_page}>
@@ -222,33 +181,65 @@ export default function Community() {
                     {renderHastags(hastags)}
                 </div>
                 <div className={styles.community_main_content}>
-                    {/* <div className={styles.user_info_box}>
+                    <div className={styles.write_commment_box}>
                         <Image 
                             src={require('../../public/test-avt.png')}              
                             width={64}
                             height={64}
                             alt=""
                         />
-                        <div className={styles.user_info_right} >
-                            <h4>Eastplayers</h4>
-                            <div className={styles.user_address}>
-                                Hồ Chí Minh - Tham gia 11/8/2020
-                            </div>
-                            <div className={styles.user_role}>
-                                #member
-                            </div>
-                            <div className={styles.user_blog_info_wrapper}>
-                                <div className={styles.blog_info}>
+                        <div className={styles.user_info_wrapper}>
+                            <h4>Eastplayer 3001</h4>
+                            <p>Hồ Chí Minh - Tham gia 11/8/2020</p>
+                            <div className={styles.user_role}>#member</div>
+                            <div className={styles.user_blog_wrapper}>
+                                <div className={styles.blog_block}>
+                                    <h3>0</h3>
+                                    <p>bài viết</p>
+                                </div>
+                                <div className={styles.blog_block}>
+                                    <h3>0</h3>
+                                    <p>bài viết</p>
+                                </div>
+                                <div className={styles.blog_block}>
                                     <h3>0</h3>
                                     <p>bài viết</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className={styles.community_show_post}>
+                        <h4>Hoạt động nổi bật</h4>
+                    </div>
+                    {/* <div className={styles.blog_comment_wrapper}>
+                        <Blog commentData={commentsData[0]}/>
                     </div> */}
-                    {renderAccountInfo(account)}
-                    <h4>Hoạt động của bạn</h4>
-                    <div className={styles.blog_comment_wrapper}>
-                        {renderComments(commentsData)}
+                    <div className={styles.user_rating}>
+                        <div className={styles.title_rating_wrapper}>
+                            <div className={styles.product_rated}>
+                                <h5>Sản phẩm đã đánh giá</h5>
+                            </div>
+                            <div className={styles.product_rating}>
+                                <h5>Sản phẩm chờ đánh giá</h5>
+                            </div>
+                        </div>
+                        <div className={styles.show_product_rating_wrapper}>
+                            <div className={styles.product_rating_panel}>
+                                <div className={styles.product_info}>
+                                    <Image 
+                                        src={require('../../public/test-avt.png')}              
+                                        width={33}
+                                        height={33}
+                                        alt=""
+                                    />
+                                    <div className={styles.product_info_text}>
+                                        <h4>Laneige Radient Cream</h4>
+                                        <p>Hồ Chí Minh - 11/8/2020</p>
+                                    </div>
+                                </div>
+                                <button className={styles.rating_button}>Đánh giá ngay</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

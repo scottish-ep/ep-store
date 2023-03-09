@@ -1,7 +1,6 @@
 import styles from '../../styles/Community.module.scss';
 import Image from 'next/image';
 import Blog from '../../components/Blog/Blog';
-import React, { useState ,useEffect} from 'react';
 
 
 const leftSidebarTop = [
@@ -96,8 +95,8 @@ const renderHastags = function (hastags) {
 const renderMenu = function(options) {
     return (
 
-        options.map((option,index) => (
-            <div id='menu-opt' className={styles.item} key={index}>
+        options.map((option) => (
+            <div className={styles.item}>
                 <Image 
                     src={require('../../public/test-avt.png')}              
                     width={33}
@@ -155,14 +154,6 @@ const renderComments = function(comments) {
         ))
     );
 }
-
-// const [currentOpt, setCurrentOpt] = useState(1);
-// useEffect(() => {
-//     const handleClick = (opt) => {
-//         setCurrentOpt(opt)
-//     }
-// },[currentOpt])
-
 export default function Community() {
     return (
         <div className={styles.community_page}>
@@ -210,7 +201,7 @@ export default function Community() {
                         </div>
                     </div>
                     <div className={styles.blog_comment_wrapper}>
-                        {renderComments(commentsData)}
+                        <Blog commentData={commentsData[0]}/>
                     </div>
                 </div>
             </div>

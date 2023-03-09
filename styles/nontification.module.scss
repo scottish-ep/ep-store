@@ -1,0 +1,277 @@
+.layout{
+    display: flex;
+    flex-direction: row;
+    margin-left: 230px;
+    margin-right: 230px;
+}
+.section_left{
+    margin-right: 31px;
+}
+.section_1{
+    padding-left: 85px;
+    padding-right: 85px;
+    padding-top: 17px;
+    padding-bottom: 29px;
+    max-width: 304px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0px 16px 16px rgba(205, 204, 221, 0.25);
+    border-radius: 8px;
+    .name{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #24242F;
+    }
+    .number{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: #303D50;
+        margin: 0px;
+    }
+    .name_number{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 18px;
+        color: #616286;
+        margin: 0px;
+    }
+    .block_number{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+    .line{
+        border: 1px solid #DADAE4;
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+    .block_number_small{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .avatar_border{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #DADAE4;
+        padding: 3px;
+        border-radius: 100%;
+        width: 90px;
+    }
+    .avatar{
+        border-radius: 45px;
+    }
+    .member{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 6px 18px;
+        background: #F9D311;
+        border-radius: 32px;
+        margin-top: 8px;
+        margin-bottom: 20px;
+    }
+}
+
+.section_2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 16px 16px rgba(205, 204, 221, 0.25);
+    border-radius: 8px;
+    padding-top: 12px;
+    padding-left: 20px;
+    padding-bottom: 14px;
+    margin-top: 32px;
+    .img{
+        margin-right: 16px;
+    }
+    .text{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #303D50;
+    }
+}
+.section_3{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0px 16px 16px rgba(205, 204, 221, 0.25);
+    border-radius: 8px;
+    margin-top: 16px;
+    .url{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+        margin-top: 24px;
+        .img{
+            margin-right: 16px;
+        }
+        .content{
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 24px;
+            color: #787C84;
+        }
+    }
+    .title_3{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .title_small_3{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .text{
+                margin-left: 16px;
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                color: #24242F;
+            }
+        }
+    }
+}
+.section_right{
+    background: #FFFFFF;
+    box-shadow: 0px 16px 16px rgba(205, 204, 221, 0.25);
+    border-radius: 8px;
+    padding-left: 23px;
+    padding-right: 23px;
+    padding-top: 32px;
+    max-width: 644px;
+    .big_title{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 32px;
+        color: #020202;
+    }
+    .small_title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .read{
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 18px;
+            color: #616286;
+        }
+        .options{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .title_show{
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                color: #24242F;
+            }
+            .title{
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                color: #9596A3;
+                margin-left: 24px;
+            }
+        }
+    }
+    .product{
+        display: flex;
+        flex-direction: row;
+        padding-left: 23px;
+        padding-right: 23px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        text-decoration: none;
+        justify-content: space-between;
+        .product_info{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            .product_name{
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 24px;
+                color: #020202;
+            }
+            .product_content{
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 18px;
+                color: #303D50;
+                max-width: 326px;
+            }
+            .product_date{
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 18px;
+                color: #9596A3;
+            }
+            .img{
+                margin-right: 18px;
+            }
+        }
+        .product_more{
+            display: flex;
+            flex-direction: row;
+            .product_all{
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 18px;
+                color: #1877F2;
+                width: 69px;
+            }
+            .product_del{
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 18px;
+                color: #FF0909;
+                margin-left: 16px;
+            }
+        } 
+    }
+}
