@@ -135,6 +135,36 @@ export default function DetailMagazine() {
             <div className={styles.list_tag}>
               {renderOption(options)}
             </div>
+            <div className={styles.button}>
+              <button className={styles.share_button}>
+                SHARE THIS
+                <Image 
+                  src={require("../../public/path.png")}
+                  className={styles.icon_share}
+                />
+              </button>
+              <div className={styles.community}>
+                <button className={styles.fb_button}>
+                  <Image 
+                    src={require("../../public/fb.png")}
+                    className={styles.icon_fb}
+                  />
+                  Chia sẻ
+                </button>
+                <button className={styles.like_button}>
+                  <Image 
+                    src={require("../../public/group 2487.png")}
+                    className={styles.icon_like}
+                  />
+                  Chia sẻ
+                </button>
+              </div>
+            </div>
+            <div className={styles.stt_fb}>
+              <Image
+                src={require("../../public/Mask Group.png")}
+              />
+            </div>
           </div>
         </Layout>
       </main>

@@ -36,7 +36,7 @@ const renderContent = () => {
   return (
     <div className={styles.small_url}>
       <Link className={styles.url} href="#">
-        <img src={smallbanner.src} alt="" />
+        <Image src={smallbanner.src} alt="" />
         <p className={classNames("title-small start")}>BEAUTY</p>
         <h4 className="content-small start">
           Daydreaming in Japan: a colouring book inspired by the streets of

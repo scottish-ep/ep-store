@@ -153,6 +153,74 @@
     display: flex;
     flex-direction: row;
 }
+.button{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .share_button{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #24242F;
+    border: 1px solid #24242F;
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+  }
+  .icon_share{
+    margin-left: 15px;
+  }
+  .community{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #C4C4C4;
+    padding: 20px 54px;
+    .fb_button{
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 24px;
+      color: #FFFFFF;
+      background: #395CA9;
+      border-radius: 2px;
+      border: none;
+      display: flex;
+      align-items: center;
+      padding: 0px 16px;
+    }
+    .icon_fb{
+      margin-right: 8px;
+    }
+    .like_button{
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 24px;
+      color: #FFFFFF;
+      background: #166CF0;
+      border-radius: 2px;
+      border: none;
+      display: flex;
+      align-items: center;
+      padding: 0px 16px;
+      margin-left: 8px;
+    }
+    .icon_like{
+      margin-right: 8px;
+    }
+  } 
+}
+.stt_fb{
+  display: flex;
+  justify-content: center;
+}
 @media (max-width: 1200px) {
       .container{
         padding-top: 150px;
