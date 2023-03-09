@@ -63,7 +63,7 @@
             width: 527px;
             margin-left: auto;
             margin-right: auto;
-            .write_commment_box {
+            .user_info_box {
                 position: relative;
                 width: 100%;
                 display: flex;
@@ -75,15 +75,45 @@
                 border-radius: 8px;
                 background: #FFFFFF;
                 z-index: 3;
-                .comment_box{
+                .user_info_right{
                     width: 84%;
                     min-height: 75px;
-                    input {
-                        background: #FFFFFF;
-                        border: 1px solid #DADAE4;
-                        border-radius: 8px;
-                        width: 100%;
-                        height: 100%;
+                    h4 {
+                        margin-top: 4px;
+                        margin-bottom: 0;
+                    }
+                    .user_address{
+                        font-weight: 400;
+                        font-size: 13px;
+                        line-height: 18px;
+                        margin-bottom: 5px;
+                    }
+                    .user_role {
+                        background: #F9D311;
+                        border-radius: 24px;
+                        padding: 4px 12px;
+                        color: white;
+                        max-width: 78px;
+                        text-align: center;
+                    }
+                    .user_blog_info_wrapper {
+                        margin-top: 8px;
+                        display: flex;
+                        flex-direction: row;
+                        .blog_info {
+                            
+                            width: fit-content;
+                            padding-right: 37px;
+                            padding-left: 16px;
+                            border-right: 1px solid #DADAE4;
+                            h3 {
+                                margin: 0;
+                            }
+                            p {
+                                margin-top: 0;
+                            }
+                        }
+                        
                     }
                 }
             }

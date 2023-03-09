@@ -1,6 +1,7 @@
-import styles from '../styles/Community.module.scss';
+import styles from '../../styles/Community.module.scss';
 import Image from 'next/image';
-import Blog from '../components/Blog/Blog';
+import Blog from '../../components/Blog/Blog';
+import React, { useState ,useEffect} from 'react';
 
 
 const leftSidebarTop = [
@@ -95,10 +96,10 @@ const renderHastags = function (hastags) {
 const renderMenu = function(options) {
     return (
 
-        options.map((option) => (
-            <div className={styles.item}>
+        options.map((option,index) => (
+            <div id='menu-opt' className={styles.item} key={index}>
                 <Image 
-                    src={require('../public/test-avt.png')}              
+                    src={require('../../public/test-avt.png')}              
                     width={33}
                     height={33}
                     alt=""
@@ -154,13 +155,21 @@ const renderComments = function(comments) {
         ))
     );
 }
+
+// const [currentOpt, setCurrentOpt] = useState(1);
+// useEffect(() => {
+//     const handleClick = (opt) => {
+//         setCurrentOpt(opt)
+//     }
+// },[currentOpt])
+
 export default function Community() {
     return (
         <div className={styles.community_page}>
             <div className={styles.community_page_wrapper}>
                 <div className={styles.left_flower}>
                     <Image
-                            src={require('../public/left-flower.png')}              
+                            src={require('../../public/left-flower.png')}              
                             width={396}
                             height={342}
                             alt=""
@@ -168,7 +177,7 @@ export default function Community() {
                 </div>
                 <div className={styles.right_flower}>
                     <Image
-                        src={require('../public/right-flower.png')}              
+                        src={require('../../public/right-flower.png')}              
                         width={335}
                         height={289}
                         alt=""
@@ -183,7 +192,7 @@ export default function Community() {
                 <div className={styles.community_main_content}>
                     <div className={styles.write_commment_box}>
                         <Image 
-                            src={require('../public/test-avt.png')}              
+                            src={require('../../public/test-avt.png')}              
                             width={64}
                             height={64}
                             alt=""
@@ -201,7 +210,7 @@ export default function Community() {
                         </div>
                     </div>
                     <div className={styles.blog_comment_wrapper}>
-                        <Blog commentData={commentsData[0]}/>
+                        {renderComments(commentsData)}
                     </div>
                 </div>
             </div>
