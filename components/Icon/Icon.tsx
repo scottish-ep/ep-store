@@ -10,7 +10,10 @@ const Icon: React.FC<{
   className?: string
 }> = props => {
   const { color, size = "100%", icon, className = "" } = props;
+
+  
   return (
+
     <IcomoonReact
       className={className}
       iconSet={iconSet}
