@@ -48,6 +48,7 @@
         .left_community {
             position: fixed;
             right:calc(50vw + 527px/2 + 81px);
+            z-index: 4;
             h4 {
                 margin: 0 0 8px;
             }
@@ -55,6 +56,33 @@
                 padding-bottom: 32px;
                 margin-bottom: 24px;
                 border-bottom: 1px solid #DADAE4;
+                display: flex;
+                flex-direction: column;
+                .item {
+                    color: #303D50;
+                    padding-bottom: 8px;
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 16px;
+                    svg {
+                        padding-right: 8px;
+                    }
+                }
+            }
+            .right_sidebar_bot {
+                color: #303D50;
+                display: flex;
+                flex-direction: column;
+                .item {
+                    color: #303D50;
+                    padding-bottom: 8px;
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 16px;
+                    svg {
+                        padding-right: 8px;
+                    }
+                }
             }
         }
         .community_main_content {
@@ -111,12 +139,20 @@
                             box-shadow: 0px 16px 16px rgba(205, 204, 221, 0.25);
                             border-radius: 8px;
                             padding: 14px 8px 6px 4px;
+                            svg {
+                                width: 33px;
+                                height: 33px;
+                            }
                             p {
                                 font-weight: 600;
                                 font-size: 10px;
                                 line-height: 14px;
                                 text-align: center;
                                 color: #020202;
+                            }
+                            &.active {
+                                transition: 0.3s;
+                                background-color: #F9D311!important;
                             }
                         }
                     }

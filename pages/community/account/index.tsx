@@ -1,9 +1,8 @@
-import styles from '../../styles/Community.module.scss';
+import styles from '../../../styles/Community-Account.module.scss';
 import Image from 'next/image';
-import Blog from '../../components/Blog/Blog';
-import Icon from '../../components/Icon/Icon';
-import IconLink from '../../components/IconLink/IconLink';
-import React, { useState,useEffect } from 'react';
+import Blog from '../../../components/Blog/Blog';
+import Icon from '../../../components/Icon/Icon';
+import IconLink from '../../../components/IconLink/IconLink';
 
 const leftSidebarTop = [
     {
@@ -114,19 +113,15 @@ const renderHastags = function (hastags) {
 const renderMenu = function(options) {
     return (
 
-        options.map((option,index) => (
-
-            <div id="menu-option" onClick={handleClickToShow} className={styles.item} key={index}>
-               <IconLink 
-                        key={index}
-                        className=''
-                        href=''
-                        iconName={option.icon}
-                        iconSize={18}
-                        iconBefore={true}
-                        text=''
+        options.map((option) => (
+            <div className={styles.item}>
+                <Image 
+                    src={require('../../../public/test-avt.png')}              
+                    width={33}
+                    height={33}
+                    alt=""
                 />
-                <p>{option.title + index}</p>
+                <p>{option.title}</p>
             </div>
         ))
     )
@@ -177,35 +172,13 @@ const renderComments = function(comments) {
         ))
     );
 }
-
-
-const handleClickToShow = function(e) {
-    let menuOpt = document.querySelectorAll("#menu-option");
-    menuOpt.forEach(e => {
-        e.classList.remove(styles.active);
-    })
-    e.target.classList.add(styles.active)
-    console.log(e.target.getAttribute("key"));
-    
-};
-
-// useEffect(() => {
-    
-// });
 export default function Community() {
-    const [currentOpt,setCurrentOpt] = useState(1);
-    useEffect(() => {
-        const handleClickRating = e => {
-            console.log(e.target.index);
-            
-        }
-    },[currentOpt])
     return (
         <div className={styles.community_page}>
             <div className={styles.community_page_wrapper}>
                 <div className={styles.left_flower}>
                     <Image
-                            src={require('../../public/left-flower.png')}              
+                            src={require('../../../public/left-flower.png')}              
                             width={396}
                             height={342}
                             alt=""
@@ -213,7 +186,7 @@ export default function Community() {
                 </div>
                 <div className={styles.right_flower}>
                     <Image
-                        src={require('../../public/right-flower.png')}              
+                        src={require('../../../public/right-flower.png')}              
                         width={335}
                         height={289}
                         alt=""
@@ -228,25 +201,63 @@ export default function Community() {
                 <div className={styles.community_main_content}>
                     <div className={styles.write_commment_box}>
                         <Image 
-                            src={require('../../public/test-avt.png')}              
+                            src={require('../../../public/test-avt.png')}              
                             width={64}
                             height={64}
                             alt=""
                         />
-                        <div className={styles.comment_box} >
-                            <input type="text" id="write_comment" placeholder="Chia sẻ review sản phẩm và nhận xu"/>
-                        </div>
-                    </div>
-                    <div className={styles.community_show_post}>
-                        <div className={styles.post_choose}>
-                            <h4>Nổi bật</h4>
-                            <div className={styles.menu_choose}>
-                                {renderMenu(menuOptions)}
+                        <div className={styles.user_info_wrapper}>
+                            <h4>Eastplayer 3001</h4>
+                            <p>Hồ Chí Minh - Tham gia 11/8/2020</p>
+                            <div className={styles.user_role}>#member</div>
+                            <div className={styles.user_blog_wrapper}>
+                                <div className={styles.blog_block}>
+                                    <h3>0</h3>
+                                    <p>bài viết</p>
+                                </div>
+                                <div className={styles.blog_block}>
+                                    <h3>0</h3>
+                                    <p>bài viết</p>
+                                </div>
+                                <div className={styles.blog_block}>
+                                    <h3>0</h3>
+                                    <p>bài viết</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className={styles.blog_comment_wrapper}>
+                    <div className={styles.community_show_post}>
+                        <h4>Hoạt động nổi bật</h4>
+                    </div>
+                    {/* <div className={styles.blog_comment_wrapper}>
                         <Blog commentData={commentsData[0]}/>
+                    </div> */}
+                    <div className={styles.user_rating}>
+                        <div className={styles.title_rating_wrapper}>
+                            <div className={styles.product_rated}>
+                                <h5>Sản phẩm đã đánh giá</h5>
+                            </div>
+                            <div className={styles.product_rating}>
+                                <h5>Sản phẩm chờ đánh giá</h5>
+                            </div>
+                        </div>
+                        <div className={styles.show_product_rating_wrapper}>
+                            <div className={styles.product_rating_panel}>
+                                <div className={styles.product_info}>
+                                    <Image 
+                                        src={require('../../../public/test-avt.png')}              
+                                        width={33}
+                                        height={33}
+                                        alt=""
+                                    />
+                                    <div className={styles.product_info_text}>
+                                        <h4>Laneige Radient Cream</h4>
+                                        <p>Hồ Chí Minh - 11/8/2020</p>
+                                    </div>
+                                </div>
+                                <button className={styles.rating_button}>Đánh giá ngay</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

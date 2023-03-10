@@ -157,6 +157,15 @@
                         text-align: center;
                         width: 50%;
                         border-bottom: 1px solid #DADAE4;
+                        color: #9596A3;
+                        h5 {
+                            margin-bottom: 9px;
+                        }
+                        &.active {
+                            border-bottom:2px solid #F9D311;
+                            color: #020202;
+
+                        }
                     }
                     margin-bottom: 32px;
                 }

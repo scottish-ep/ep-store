@@ -1,30 +1,32 @@
-import styles from '../../styles/Community-Account.module.scss';
+import styles from '../../../styles/Community-RatingProduct.module.scss';
 import Image from 'next/image';
-import Blog from '../../components/Blog/Blog';
-
+import Blog from '../../../components/Blog/Blog';
+import Icon from '../../../components/Icon/Icon';
+import IconLink from '../../../components/IconLink/IconLink';
+import React, { useState,useEffect } from 'react';
 
 const leftSidebarTop = [
     {
-        icon:'',
+        icon:'news-feed',
         title:'News feed'
     },
     {
-        icon:'',
+        icon:'menu-gift',
         title:'Unboxing'
     },
     {
-        icon:'',
+        icon:'menu-best-deals',
         title:'Best deals'
     }
 ];
 
 const leftSidebarBot = [
     {
-        icon:'',
+        icon:'menu-user-name',
         title:'Easplayers 3001'
     },
     {
-        icon:'',
+        icon:'menu-star',
         title:'Đánh gía sản phẩm'
     },
 ]
@@ -38,39 +40,65 @@ const hastags = [
 
 const menuOptions = [
     {
-        icon:"",
+        icon:"menu-tag",
         title: "Được đề cập nhiều nhất tuần"
     },
     {
-        icon:"",
+        icon:"menu-like",
         title: "Bài viết được bình chọn"
     },
     {
-        icon:"",
+        icon:"menu-3-stars",
         title: "Được đánh giá nhiều nhất"
     },
     {
-        icon:"",
+        icon:"menu-1-star",
         title: "Sản phẩm nổi tiếng nhất tuần"
     },
     {
-        icon:"",
+        icon:"menu-medal",
         title: "Đáng mua nhất tuần"
     }
 ];
+
+const rating = [
+    {
+        name:"Laneige Radient Cream",
+        address: "Hồ Chí Minh",
+        date: "11/11/2023",
+        imgSrc:""
+    }
+]
 
 const renderLeftSidebar = function(topItems,botItems){
     let key =1;
     return (
         <>
             <div className={styles.right_sidebar_top}>
-                {topItems.map(item => (
-                    <h4 key={key++}>{item.title}</h4>
+                {topItems.map((item,index) => (
+                     <IconLink 
+                        key={index}
+                        className={styles.item}
+                        href=''
+                        iconName={item.icon}
+                        iconSize={18}
+                        iconBefore={true}
+                        text={item.title}
+                    />
+                    // <h4 key={key++}>{item.title}</h4>
                 ))}
             </div>
             <div className={styles.right_sidebar_bot}>
-                {botItems.map(item => (
-                    <h4 key={key++}>{item.title}</h4>
+                {botItems.map((item,index) => (
+                    <IconLink 
+                        key={index}
+                        className={styles.item}
+                        href=''
+                        iconName={item.icon}
+                        iconSize={18}
+                        iconBefore={true}
+                        text={item.title}
+                    />
                 ))}
             </div>
         </>
@@ -98,7 +126,7 @@ const renderMenu = function(options) {
         options.map((option) => (
             <div className={styles.item}>
                 <Image 
-                    src={require('../../public/test-avt.png')}              
+                    src={require('../../../public/test-avt.png')}              
                     width={33}
                     height={33}
                     alt=""
@@ -147,6 +175,8 @@ const commentsData =[
     }
 ]
 
+
+
 const renderComments = function(comments) {
     return (
         comments.map(comment => (
@@ -154,13 +184,57 @@ const renderComments = function(comments) {
         ))
     );
 }
+
+
+const renderProduct = function(datas) {
+    return (
+        <>
+        {datas.map((data,index) =>(
+            <div className={styles.product_rating_panel}>
+                <div className={styles.product_info}>
+                    <Image 
+                        src={require('../../../public/test-avt.png')}              
+                        width={33}
+                        height={33}
+                        alt=""
+                    />
+                    <div className={styles.product_info_text}>
+                        <h4>{data.name}</h4>
+                        <p>{data.address} - {data.date}</p>
+                    </div>
+                </div>
+                <button className={styles.rating_button}>Đánh giá ngay</button>
+            </div>
+        ))}
+        </>
+    )
+}
+
+
+
+
 export default function Community() {
+    const [currentOpt,setCurrentOpt] = useState(1);
+    useEffect(() => {
+        let rated = document.getElementById("rated-btn");
+        let rating = document.getElementById("rating-btn");
+        rated.addEventListener('click',function handleClick(e) {
+            rated.classList.add(styles.active);
+            rating.classList.remove(styles.active);
+            setCurrentOpt(1);
+        });
+        rating.addEventListener('click',function handleClick(e) {
+            rating.classList.add(styles.active);
+            rated.classList.remove(styles.active);
+            setCurrentOpt(2);
+        });
+    },[currentOpt])
     return (
         <div className={styles.community_page}>
             <div className={styles.community_page_wrapper}>
                 <div className={styles.left_flower}>
                     <Image
-                            src={require('../../public/left-flower.png')}              
+                            src={require('../../../public/left-flower.png')}              
                             width={396}
                             height={342}
                             alt=""
@@ -168,7 +242,7 @@ export default function Community() {
                 </div>
                 <div className={styles.right_flower}>
                     <Image
-                        src={require('../../public/right-flower.png')}              
+                        src={require('../../../public/right-flower.png')}              
                         width={335}
                         height={289}
                         alt=""
@@ -183,7 +257,7 @@ export default function Community() {
                 <div className={styles.community_main_content}>
                     <div className={styles.write_commment_box}>
                         <Image 
-                            src={require('../../public/test-avt.png')}              
+                            src={require('../../../public/test-avt.png')}              
                             width={64}
                             height={64}
                             alt=""
@@ -216,29 +290,15 @@ export default function Community() {
                     </div> */}
                     <div className={styles.user_rating}>
                         <div className={styles.title_rating_wrapper}>
-                            <div className={styles.product_rated}>
+                            <div id="rated-btn"className={styles.product_rated} >
                                 <h5>Sản phẩm đã đánh giá</h5>
                             </div>
-                            <div className={styles.product_rating}>
+                            <div id="rating-btn"className={styles.product_rating} >
                                 <h5>Sản phẩm chờ đánh giá</h5>
                             </div>
                         </div>
                         <div className={styles.show_product_rating_wrapper}>
-                            <div className={styles.product_rating_panel}>
-                                <div className={styles.product_info}>
-                                    <Image 
-                                        src={require('../../public/test-avt.png')}              
-                                        width={33}
-                                        height={33}
-                                        alt=""
-                                    />
-                                    <div className={styles.product_info_text}>
-                                        <h4>Laneige Radient Cream</h4>
-                                        <p>Hồ Chí Minh - 11/8/2020</p>
-                                    </div>
-                                </div>
-                                <button className={styles.rating_button}>Đánh giá ngay</button>
-                            </div>
+                            {currentOpt==1 &&renderProduct(rating)}
                         </div>
                     </div>
                 </div>
