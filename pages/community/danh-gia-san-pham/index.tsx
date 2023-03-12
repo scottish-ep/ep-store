@@ -62,6 +62,39 @@ const menuOptions = [
 ];
 
 const rating = [
+    // {
+    //     name:"Laneige Radient Cream",
+    //     address: "Hồ Chí Minh",
+    //     date: "11/11/2023",
+    //     imgSrc:""
+    // },
+    // {
+    //     name:"Laneige Radient Cream",
+    //     address: "Hồ Chí Minh",
+    //     date: "11/11/2023",
+    //     imgSrc:""
+    // },
+    // {
+    //     name:"Laneige Radient Cream",
+    //     address: "Hồ Chí Minh",
+    //     date: "11/11/2023",
+    //     imgSrc:""
+    // }
+]
+
+const rated= [
+    {
+        name:"Laneige Radient Cream",
+        address: "Hồ Chí Minh",
+        date: "11/11/2023",
+        imgSrc:""
+    },
+    {
+        name:"Laneige Radient Cream",
+        address: "Hồ Chí Minh",
+        date: "11/11/2023",
+        imgSrc:""
+    },
     {
         name:"Laneige Radient Cream",
         address: "Hồ Chí Minh",
@@ -101,21 +134,6 @@ const renderLeftSidebar = function(topItems,botItems){
                     />
                 ))}
             </div>
-        </>
-    )
-}
-
-const renderHastags = function (hastags) {
-    return (
-        <>
-            <div className={styles.hastag_title}>
-                Từ khoá nổi bật
-            </div>
-            {hastags.map((item,index) => (
-                <div className={styles.hastag}>
-                    #{item}
-                </div>
-            ))}
         </>
     )
 }
@@ -210,8 +228,24 @@ const renderProduct = function(datas) {
     )
 }
 
-
-
+const renderEmty = function() {
+    return (
+        <div className={styles.empty_rating_wrapper}>
+                                <div className={styles.circle_empty}>
+                                    <IconLink 
+                                        key={0}
+                                        className={styles.item}
+                                        href=''
+                                        iconName='empty-rate'
+                                        iconSize={18}
+                                        iconBefore={true}
+                                        text=''
+                                    />
+                                </div>
+                                <p>Chưa đánh giá sản phẩm nào</p>
+                            </div>
+    )
+}
 
 export default function Community() {
     const [currentOpt,setCurrentOpt] = useState(1);
@@ -251,9 +285,6 @@ export default function Community() {
                 <div className={styles.left_community}>
                     {renderLeftSidebar(leftSidebarTop,leftSidebarBot)}
                 </div>
-                <div className={styles.right_community}>
-                    {renderHastags(hastags)}
-                </div>
                 <div className={styles.community_main_content}>
                     <div className={styles.write_commment_box}>
                         <Image 
@@ -282,15 +313,9 @@ export default function Community() {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.community_show_post}>
-                        <h4>Hoạt động nổi bật</h4>
-                    </div>
-                    {/* <div className={styles.blog_comment_wrapper}>
-                        <Blog commentData={commentsData[0]}/>
-                    </div> */}
                     <div className={styles.user_rating}>
                         <div className={styles.title_rating_wrapper}>
-                            <div id="rated-btn"className={styles.product_rated} >
+                            <div id="rated-btn"className={styles.product_rated+" "+styles.active} >
                                 <h5>Sản phẩm đã đánh giá</h5>
                             </div>
                             <div id="rating-btn"className={styles.product_rating} >
@@ -298,7 +323,9 @@ export default function Community() {
                             </div>
                         </div>
                         <div className={styles.show_product_rating_wrapper}>
-                            {currentOpt==1 &&renderProduct(rating)}
+                            {(currentOpt==1 && rating.length!==0 &&renderProduct(rating)) 
+                            || (currentOpt==2 && rated.length!==0 &&renderProduct(rated)) 
+                            || renderEmty()}    
                         </div>
                     </div>
                 </div>

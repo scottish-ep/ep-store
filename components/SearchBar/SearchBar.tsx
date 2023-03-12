@@ -24,7 +24,7 @@ const SearchBar = (props: SeachBarInterface) => {
         placeholder={placeholder} 
       />
       <div className={styles.icon__wrapper}>
-        <Icon icon="black-search" size={18}/>
+        <Icon icon="search-glass" size={18}/>
       </div>
       {onFocus && (
         <div className={styles.search_dial__wrapper}>

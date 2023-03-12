@@ -229,35 +229,8 @@ export default function Community() {
                     <div className={styles.community_show_post}>
                         <h4>Hoạt động nổi bật</h4>
                     </div>
-                    {/* <div className={styles.blog_comment_wrapper}>
-                        <Blog commentData={commentsData[0]}/>
-                    </div> */}
-                    <div className={styles.user_rating}>
-                        <div className={styles.title_rating_wrapper}>
-                            <div className={styles.product_rated}>
-                                <h5>Sản phẩm đã đánh giá</h5>
-                            </div>
-                            <div className={styles.product_rating}>
-                                <h5>Sản phẩm chờ đánh giá</h5>
-                            </div>
-                        </div>
-                        <div className={styles.show_product_rating_wrapper}>
-                            <div className={styles.product_rating_panel}>
-                                <div className={styles.product_info}>
-                                    <Image 
-                                        src={require('../../../public/test-avt.png')}              
-                                        width={33}
-                                        height={33}
-                                        alt=""
-                                    />
-                                    <div className={styles.product_info_text}>
-                                        <h4>Laneige Radient Cream</h4>
-                                        <p>Hồ Chí Minh - 11/8/2020</p>
-                                    </div>
-                                </div>
-                                <button className={styles.rating_button}>Đánh giá ngay</button>
-                            </div>
-                        </div>
+                    <div className={styles.blog_comment_wrapper}>
+                        {renderComments(commentsData)}
                     </div>
                 </div>
             </div>
