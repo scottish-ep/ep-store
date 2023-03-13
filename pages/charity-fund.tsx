@@ -268,7 +268,7 @@ export default function CharityFund() {
                 stroke-linejoin="round"
               />
             </svg>
-          </div>{" "}
+          </div>
           <div className="charity-nav">
             Quỹ từ thiện trẻ em
             <svg

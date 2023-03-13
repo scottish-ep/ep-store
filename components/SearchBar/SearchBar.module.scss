@@ -2,13 +2,13 @@
   position: relative;
   border-radius: 8px;
   display: flex;
-  border: 1px solid rgb(233, 235, 238);
+  // border: 1px solid rgb(233, 235, 238);
   input {
     width: 80%;
     border: none;
     padding: 14px 24px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border: 1px solid #DADAE4;
+    border-radius: 32px 0px 0px 32px;
     &:focus {
       border: none;
       outline: none;
@@ -21,10 +21,11 @@
     gap: 6px;
     padding: 14px 0;
     width: 20%;
+    max-width: 35px;
     border-left: 1px solid rgb(233, 235, 238);
-    background-color: white;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    background-color: black;
+    border: 1px solid #616286;
+    border-radius: 0px 32px 32px 0px;
   }
   .search_dial__wrapper {
     position: absolute;

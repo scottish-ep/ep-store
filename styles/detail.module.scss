@@ -1,0 +1,230 @@
+  .img_banner{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+  .container{
+    margin-left: 230px;
+    margin-right: 230px;
+    padding-top: 311px;
+}
+  .img_banner_small{
+    width: 100%;
+}
+  .list_info{
+    display: flex;
+    flex-direction: row;
+}
+  .info img{
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}
+  .info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 19px;
+}
+  .title_main{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 56px;
+    color: #24242F;
+    margin-top: 73px;
+    margin-bottom: 9px;
+}
+  .info p{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #616286;
+}
+  .line{
+    border: 3px solid #303D50;
+    margin-right: 24px;
+}
+  .section_1{
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+    margin-bottom: 64px;
+}
+  .section_1 p{
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #24242F;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+  .title_small{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #303D50;
+    margin-bottom: 8px;
+}
+  .content_small{
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #616286;
+    margin-bottom: 48px;
+}
+  .img_banner_makeup{
+    width: 100%;
+}
+  .url{
+    background: #FFFFFF;
+    border: 1px solid #DADAE4;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 16px;
+    padding-right: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 16px;
+}
+  .list_url{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 42px;
+    margin-bottom: 40px;
+}
+  .img_makeup{
+    width: 56px;
+    height: 56px;
+    margin-right: 16px;
+}
+  .img_vector{
+    width: 8px;
+    height: 16px;
+}
+  .url p{
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #303D50;
+    text-decoration: none;
+    margin-right: 101px;
+}
+  .tag{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #303D50;
+    margin-top: 76px;
+}
+  .option_tag{
+    background: #FAFAFA;
+    border-radius: 24px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #303D50;
+    padding: 8px 24px;
+    margin-right: 12px;
+}
+  .list_tag{
+    display: flex;
+    flex-direction: row;
+}
+.button{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .share_button{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #24242F;
+    border: 1px solid #24242F;
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+  }
+  .icon_share{
+    margin-left: 15px;
+  }
+  .community{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #C4C4C4;
+    padding: 20px 54px;
+    .fb_button{
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 24px;
+      color: #FFFFFF;
+      background: #395CA9;
+      border-radius: 2px;
+      border: none;
+      display: flex;
+      align-items: center;
+      padding: 0px 16px;
+    }
+    .icon_fb{
+      margin-right: 8px;
+    }
+    .like_button{
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 24px;
+      color: #FFFFFF;
+      background: #166CF0;
+      border-radius: 2px;
+      border: none;
+      display: flex;
+      align-items: center;
+      padding: 0px 16px;
+      margin-left: 8px;
+    }
+    .icon_like{
+      margin-right: 8px;
+    }
+  } 
+}
+.stt_fb{
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1200px) {
+      .container{
+        padding-top: 150px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}

@@ -25,7 +25,6 @@ const SearchBar = (props: SeachBarInterface) => {
       />
       <div className={styles.icon__wrapper}>
         <Icon icon="black-search" size={18}/>
-        <span>Tìm kiếm</span>
       </div>
       {onFocus && (
         <div className={styles.search_dial__wrapper}>

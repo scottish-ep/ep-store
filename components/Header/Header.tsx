@@ -13,38 +13,34 @@ import styles from './Header.module.scss';
 
 const headerContent = {
   promotionText: {
-    text: "Free Quà",
+    text: "FREESHIP cho đơn hàng từ 399k. Mua ngay!",
     link: "#"
   },
   quickNaviUpper: [
     {
-      iconName: 'white-shop-icon',
-      text: "Cửa hàng",
+      iconName: 'black-left-cadet',
+      text: "Thông báo",
       link: "#"
     },
     {
       iconName: 'white-shipping',
-      text: "Kiểm tra đơn hàng",
+      text: "Theo dõi đơn hàng",
       link: "#"
     },
     {
       iconName: 'white-coin',
-      text: "Lixicoin",
+      text: "032 583 9032",
       link: "#"
     }
   ],
   searchPlaceholder: "Tìm kiếm",
   menuItems: [
     {
-      text: "Shop Beauty",
+      text: "Danh mục sản phẩm",
       link: "#"
     },
     {
-      text: "Ưu đãi",
-      link: "#"
-    },
-    {
-      text: "Thương hiệu",
+      text: "Sản phẩm mới",
       link: "#"
     },
     {
@@ -52,13 +48,22 @@ const headerContent = {
       link: "#"
     },
     {
-      text: "Thương hiệu",
+      text: "Góc làm đẹp",
       link: "#"
     },
     {
-      text: "Thương hiệu",
+      text: "Quà tặng",
       link: "#"
-    }
+    },
+    {
+      text: "Cộng đồng",
+      link: "#"
+    },
+    {
+      text: "Khuyến mãi",
+      link: "#"
+    },
+
   ]
 }
 
@@ -97,6 +102,9 @@ const useDeviceSize = () => {
 
 }
 
+
+
+
 const Header = () => {
   const windowSize = useDeviceSize();
   const [searchBox, setSearchBox] = useState(false);
@@ -133,9 +141,9 @@ const Header = () => {
         <div className={styles.lower_bar__wrapper}>
           <Link href="/">
             <Image 
-              src={require("../../public/logo.svg")}
-              width={145}
-              height={60}
+              src={require("../../public/cherict.png")}
+              width={138}
+              height={20}
               alt=""
             />
           </Link>
