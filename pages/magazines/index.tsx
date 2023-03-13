@@ -2,16 +2,11 @@ import Head from "next/head";
 import Pagination from "../../components/Pagination/Pagination";
 import Image from "next/image";
 import Link from "next/link";
-import { isArray } from "../../utils";
-import { useRouter } from "next/router";
+import { isArray } from "../../utils";;
 import styles from '../../styles/magazine.module.scss'
-// import  '../styles/magazine.scss'
-import bigbanner from "../../public/group 3065.png";
 import smallbanner from "../../public/content.png";
 import Header from "../../components/Header/Header";
-import Carousel from "../../components/Carousel/Carousel";
 import Layout from "../../components/Layout/Layout";
-import ProductPanel from "../../components/ProductPanel/ProductPanel";
 import Footer from "../../components/Footer/Footer";
 import { width } from "@mui/system";
 import classNames from "classnames";
@@ -31,19 +26,23 @@ const adsArray = [
       "Daydreaming in Japan: a colouring book inspired by the streets of Nippon",
   },
 ];
+const choices = Array(9).fill({
+  text: "Nước hoa Atelier Cologne Iris Rebelle Cologne Absolue Pure Perfume",
 
-const renderContent = () => {
+})
+const renderContent = (choices) => {
   return (
+    choices.map((choice,index) => (
     <div className={styles.small_url}>
       <Link className={styles.url} href="#">
-        <Image src={smallbanner.src} alt="" />
-        <p className={classNames("title-small start")}>BEAUTY</p>
-        <h4 className="content-small start">
+        <Image className={styles.img} src={require("../../public/content.png")} alt="" />
+        <p className={styles.title_small}>BEAUTY</p>
+        <h4 className={styles.content_small}>
           Daydreaming in Japan: a colouring book inspired by the streets of
           Nippon
         </h4>
       </Link>
-    </div>
+    </div>))
   );
 };
 
@@ -56,7 +55,7 @@ export default function magazine() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="magazine">
+      <main className={styles.magazine}>
         <Header />
         <Layout>
           <div>
@@ -91,8 +90,8 @@ export default function magazine() {
                       alt=""
                       className={styles.img}
                     />
-                    <p className="title-small start">{item.title}</p>
-                    <h4 className="content-small start">{item.content}</h4>
+                    <p className={styles.title_small}>{item.title}</p>
+                    <h4 className={styles.content_small}>{item.content}</h4>
                   </Link>
                 ))}
             </div>
@@ -106,7 +105,7 @@ export default function magazine() {
                 <div className={styles.option}>Chăm sóc da mặt</div>
               </div>
               <div className={styles.list_url}>
-                {renderContent()}
+                {renderContent(choices)}
               </div>
             </div>
           </div>

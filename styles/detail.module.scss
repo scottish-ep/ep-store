@@ -6,10 +6,11 @@
   .container{
     margin-left: 230px;
     margin-right: 230px;
-    padding-top: 311px;
+    padding-top: 210px;
 }
   .img_banner_small{
     width: 100%;
+    object-fit: cover;
 }
   .list_info{
     display: flex;
@@ -19,6 +20,7 @@
     width: 16px;
     height: 16px;
     margin-right: 6px;
+    object-fit: cover;
 }
   .info{
     display: flex;
@@ -220,6 +222,11 @@
 .stt_fb{
   display: flex;
   justify-content: center;
+  width: 100%;
+}
+.mask_group{
+  width: 100%;
+  object-fit: contain;
 }
 @media (max-width: 1200px) {
       .container{
@@ -227,4 +234,19 @@
         margin-left: 50px;
         margin-right: 50px;
     }
+}
+@media (max-width: 500px) {
+  .community{
+    padding: 20px 10px !important;
+  }
+  .share_button{
+    padding: 20px 10px !important;
+  }
+  .container{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .url p{
+    margin-right: 10px;
+  }
 }

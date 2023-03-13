@@ -1,0 +1,55 @@
+.homepage{
+    .banner_homepage{
+        width: 100%;
+        margin-bottom: 72px;
+    }
+    .list_ticket{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-left: 230px;
+        margin-right: 230px;
+        .ticket{
+            margin-top: 36px;
+            padding: 20px;
+            .background{
+                position: absolute;
+                z-index: -1;
+                .ticket_img{
+                    display: flex;
+                    justify-content: center;
+                    align-self: center;
+                }
+            }
+            .left_ticket{
+                .info_ticket{
+                    display: flex;
+                    flex-direction: row;
+                    .title{
+                        font-family: 'Nunito';
+                        font-style: normal;
+                        font-weight: 800;
+                        font-size: 12px;
+                        line-height: 16px;
+                        color: #1877F2;
+                        margin-right: 12px;
+                    }
+                }
+                .content{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #24242F;
+                }
+            }
+            .url{
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 18px;
+                text-decoration-line: underline;
+                color: #F9D311;
+            }
+        }
+    }
+}

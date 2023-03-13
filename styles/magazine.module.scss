@@ -17,7 +17,7 @@
     .group_banner_small{
         display: flex;
         position: absolute;
-        top: 57%;
+        top: 55%;
         width: 100%;
         flex-direction: column;
         justify-content: center;
@@ -55,6 +55,7 @@
     }
     .small_banner{
         width: 85%;
+        object-fit: cover;
     }
     .section_main{
         margin-left: 104px;
@@ -84,9 +85,21 @@
         margin-top: 71px;
         margin-bottom: 56px;
     }
+    .section_main{
+        .title_small{
+            text-align: start;
+        }
+        .content_small{
+            text-align: start;
+        }
+    }
     .section02{
-        img{
+        .title_small{
+            text-align: start;
+        }
+        .img{
             max-width: 401px;
+            max-height: 224px;
         }
         .url{
             max-width: 401px;
@@ -98,11 +111,13 @@
             object-fit: cover;
             margin-top: 30px;
             margin-bottom: 40px;
+            min-height: 310px;
         }
         .list_url{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
+            justify-content: center;
         }
         .content_small{
             font-family: 'Nunito';
@@ -111,6 +126,7 @@
             font-size: 20px;
             line-height: 24px;
             color: #24242F;
+            text-align: start;
         }
         .title{
             font-family: 'Nunito';
@@ -148,7 +164,7 @@
                 max-width: 350px;
                 margin-right: 10px;
             }
-            img{
+            .img{
                 max-width: 350px;
             }
         }
@@ -161,7 +177,7 @@
                 max-width: 500px;
                 margin-right: 10px;
             }
-            img{
+            .img{
                 max-width: 500px;
             }
         }
@@ -174,7 +190,7 @@
                 max-width: 450px;
                 margin-right: 10px;
             }
-            img{
+            .img{
                 max-width: 450px;
             }
         }
@@ -195,7 +211,7 @@
                 max-width: 500px;
                 margin-right: 0px;
             }
-            img{
+            .img{
                 max-width: 500px;
             }
         }
@@ -208,7 +224,7 @@
                 max-width: 100%;
                 margin-right: 10px;
             }
-            img{
+            .img{
                 max-width: 100%;
             }
         }
@@ -252,17 +268,27 @@
     }
 
 @media (max-width: 768px) {
-    .magazine .section01{
-        margin-top: 250px;
-    }
+    .magazine{
+        .section01{
+            margin-top: 250px;
+        }
+    } 
 }
 @media (max-width: 705px) {
-    .magazine .title_1{
-        top: 14%;
-    }
+    .magazine{
+        .group_banner_small{
+            top: 44%;
+        }
+        .section_main{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    } 
 }
 @media (max-width: 500px) {
-    .magazine .section01{
-        margin-top: 350px;
-    }
+    .magazine{
+        .section01{
+            margin-top: 350px;
+        }
+    } 
 }
