@@ -4,32 +4,33 @@ import Blog from '../../../components/Blog/Blog';
 import Icon from '../../../components/Icon/Icon';
 import IconLink from '../../../components/IconLink/IconLink';
 import React, { useState,useEffect } from 'react';
-
-const leftSidebarTop = [
-    {
-        icon:'news-feed',
-        title:'News feed'
-    },
-    {
-        icon:'menu-gift',
-        title:'Unboxing'
-    },
-    {
-        icon:'menu-best-deals',
-        title:'Best deals'
-    }
-];
-
-const leftSidebarBot = [
-    {
-        icon:'menu-user-name',
-        title:'Easplayers 3001'
-    },
-    {
-        icon:'menu-star',
-        title:'Đánh gía sản phẩm'
-    },
-]
+import CommunityLeftSideBar from '../../../components/CommunityLeftSideBar/CommunityLeftSideBar';
+const leftSideBarItems = {
+    topItems : [
+        {
+            icon:'news-feed',
+            title:'News feed'
+        },
+        {
+            icon:'menu-gift',
+            title:'Unboxing'
+        },
+        {
+            icon:'menu-best-deals',
+            title:'Best deals'
+        }
+    ],
+    botItems: [
+        {
+            icon:'menu-user-name',
+            title:'Easplayers 3001'
+        },
+        {
+            icon:'menu-star',
+            title:'Đánh gía sản phẩm'
+        },
+    ]
+}
 
 const hastags = [
     "Kem chống nắng",
@@ -249,20 +250,6 @@ const renderEmty = function() {
 
 export default function Community() {
     const [currentOpt,setCurrentOpt] = useState(1);
-    useEffect(() => {
-        let rated = document.getElementById("rated-btn");
-        let rating = document.getElementById("rating-btn");
-        rated.addEventListener('click',function handleClick(e) {
-            rated.classList.add(styles.active);
-            rating.classList.remove(styles.active);
-            setCurrentOpt(1);
-        });
-        rating.addEventListener('click',function handleClick(e) {
-            rating.classList.add(styles.active);
-            rated.classList.remove(styles.active);
-            setCurrentOpt(2);
-        });
-    },[currentOpt])
     return (
         <div className={styles.community_page}>
             <div className={styles.community_page_wrapper}>
@@ -282,8 +269,8 @@ export default function Community() {
                         alt=""
                     />
                 </div>
-                <div className={styles.left_community}>
-                    {renderLeftSidebar(leftSidebarTop,leftSidebarBot)}
+                <div className={styles.left_community_wrapper}>
+                    <CommunityLeftSideBar Items ={leftSideBarItems} />
                 </div>
                 <div className={styles.community_main_content}>
                     <div className={styles.write_commment_box}>
@@ -315,10 +302,16 @@ export default function Community() {
                     </div>
                     <div className={styles.user_rating}>
                         <div className={styles.title_rating_wrapper}>
-                            <div id="rated-btn"className={styles.product_rated+" "+styles.active} >
+                            <div id="rated-btn"className={styles.product_rated+" "+ (currentOpt==1 ? styles.active:"")}
+                            onClick={() => {
+                                setCurrentOpt(1)
+                            }} >
                                 <h5>Sản phẩm đã đánh giá</h5>
                             </div>
-                            <div id="rating-btn"className={styles.product_rating} >
+                            <div id="rating-btn"className={styles.product_rating+" "+ (currentOpt==2 ? styles.active:"")}  
+                              onClick={() => {
+                                setCurrentOpt(2)
+                            }} >
                                 <h5>Sản phẩm chờ đánh giá</h5>
                             </div>
                         </div>

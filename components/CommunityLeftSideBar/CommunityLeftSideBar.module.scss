@@ -1,0 +1,38 @@
+.left_community {
+   
+    h4 {
+        margin: 0 0 8px;
+    }
+    .right_sidebar_top {
+        padding-bottom: 32px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid #DADAE4;
+        display: flex;
+        flex-direction: column;
+        .item {
+            color: #303D50;
+            padding-bottom: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            svg {
+                padding-right: 8px;
+            }
+        }
+    }
+    .right_sidebar_bot {
+        color: #303D50;
+        display: flex;
+        flex-direction: column;
+        .item {
+            color: #303D50;
+            padding-bottom: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            svg {
+                padding-right: 8px;
+            }
+        }
+    }
+}

@@ -61,4 +61,10 @@
             border-radius: 8px;
         }
     }
+    .reaction_wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap:35px;
+    }
 }
