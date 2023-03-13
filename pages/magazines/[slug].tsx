@@ -163,6 +163,7 @@ export default function DetailMagazine() {
             <div className={styles.stt_fb}>
               <Image
                 src={require("../../public/Mask Group.png")}
+                className={styles.mask_group}
               />
             </div>
           </div>
