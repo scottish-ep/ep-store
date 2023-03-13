@@ -2,36 +2,50 @@ import styles from '../../styles/Community.module.scss';
 import Image from 'next/image';
 import Blog from '../../components/Blog/Blog';
 import ProductItem from '../../components/ProductItem/ProductItem';
-import Icon from '../../components/Icon/Icon';
 import IconLink from '../../components/IconLink/IconLink';
 import React, { useState,useEffect } from 'react';
+import CommunityLeftSideBar from '../../components/CommunityLeftSideBar/CommunityLeftSideBar';
+import Carousel from '../../components/Carousel/Carousel';
+import HastagSlider from '../../components/HastagSlider/HastagSlider';
+const currentUser = {
+    name: 'Eastplayer',
+    address: 'Hồ Chí Minh',
+    role: 'member',
+    avatar:'',
+    blog: {
+        first: 0,
+        second: 0,
+        third: 0
+    },
+    joinDate: '11/11/2023'
+}
 
-
-const leftSidebarTop = [
-    {
-        icon:'news-feed',
-        title:'News feed'
-    },
-    {
-        icon:'menu-gift',
-        title:'Unboxing'
-    },
-    {
-        icon:'menu-best-deals',
-        title:'Best deals'
-    }
-];
-
-const leftSidebarBot = [
-    {
-        icon:'menu-user-name',
-        title:'Easplayers 3001'
-    },
-    {
-        icon:'menu-star',
-        title:'Đánh gía sản phẩm'
-    },
-]
+const leftSideBarItems = {
+    topItems : [
+        {
+            icon:'news-feed',
+            title:'News feed'
+        },
+        {
+            icon:'menu-gift',
+            title:'Unboxing'
+        },
+        {
+            icon:'menu-best-deals',
+            title:'Best deals'
+        }
+    ],
+    botItems: [
+        {
+            icon:'menu-user-name',
+            title:'Easplayers 3001'
+        },
+        {
+            icon:'menu-star',
+            title:'Đánh gía sản phẩm'
+        },
+    ]
+}
 
 const hastags = [
     "Kem chống nắng",
@@ -40,6 +54,12 @@ const hastags = [
     "Trang điểm"
 ]
 
+const rightSideBarProducts = [
+    {
+        name:'Máy Rửa mặt Halio & Massage',
+        imageSrc:''
+    }
+]
 const menuOptions = [
     {
         icon:"menu-tag",
@@ -63,57 +83,6 @@ const menuOptions = [
     }
 ];
 
-const renderLeftSidebar = function(topItems,botItems){
-    let key =1;
-    return (
-        <>
-            <div className={styles.right_sidebar_top} >
-                {topItems.map((item,index) => (
-                     <IconLink 
-                        key={index}
-                        className={styles.item}
-                        href=''
-                        iconName={item.icon}
-                        iconSize={18}
-                        iconBefore={true}
-                        text={item.title}
-                    />
-                    // <h4 key={key++}>{item.title}</h4>
-                ))}
-            </div>
-            <div className={styles.right_sidebar_bot}>
-                {botItems.map((item,index) => (
-                    <IconLink 
-                        key={index}
-                        className={styles.item}
-                        href=''
-                        iconName={item.icon}
-                        iconSize={18}
-                        iconBefore={true}
-                        text={item.title}
-                    />
-                ))}
-            </div>
-        </>
-    )
-}
-
-const renderHastags = function (hastags) {
-    return (
-        <>
-            <div className={styles.hastag_title}>
-                Từ khoá nổi bật
-            </div>
-            {hastags.map((item,index) => (
-                <div className={styles.hastag}>
-                    #{item}
-                </div>
-            ))}
-        </>
-    )
-}
-
-
 
 const commentsData =[
     {
@@ -131,7 +100,9 @@ const commentsData =[
         listImage: [
             'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
             'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
-        ]
+        ],
+        loveNumber: 2,
+        commentNumber: 2,
     },
     {
         user: {
@@ -148,7 +119,9 @@ const commentsData =[
         listImage: [
             'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
             'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
-        ]
+        ],
+        loveNumber: 2,
+        commentNumber: 2,
     }
 ]
 
@@ -209,23 +182,74 @@ export default function Community() {
         )
     }
     
-    const renderHastags = function (hastags) {
+    const renderRightSideBar = function (hastags,products) {
         return (
             <>
                 <div className={styles.hastag_title}>
                     Từ khoá nổi bật
                 </div>
                 {hastags.map((item,index) => (
-                    <div className={styles.hastag + " " + (currentTag==item ? styles.active : "")} 
-                    onClick={(e) => {
+                    <div className={styles.hastag+ " " + (currentTag==item ? styles.active: "")} onClick={() => {
                         setCurrentTag(item);
                     }}>
                         #{item}
                     </div>
                 ))}
+                <div className={styles.right_side_bot}>
+                    <div className={styles.hastag_title}>
+                        Từ khoá nổi bật
+                    </div>
+                    <a href="">Xem tất cả</a>
+                    <p>Đánh giá sản phẩm đã mua và chia sẻ link đập hộp để nhận thưởng lên đến 200 Cheri Xu</p>
+                    {products.map(product => (
+                        <div className={styles.right_side_product}>
+                            <Image
+                                    src={require('../../public/left-flower.png')}              
+                                    width={40}
+                                    height={40}
+                                    alt=""
+                            />
+                            <h5>{product.name}</h5>
+                        </div>
+                    ))}
+                </div>
             </>
         )
     }
+
+    const renderMenuMobile = function(items) {
+        return (
+            <div className={styles.menu_mobile_wrapper}>
+                <select name="" id="" className={styles.menu_option_mobile}>
+                    {items.topItems.map((item,index) => (
+                        <option value={item.title}>{item.title}</option>
+                    ))}
+                    {items.botItems.map((item,index) => (
+                        <option value={item.title}>{item.title}</option>
+                    ))}
+                </select>
+            </div>
+        )
+    }
+    
+
+    const renderSlickTag  = function(items) {
+        return (
+            <div className={styles.hastag_slick_container}>
+                <h4>Từ khóa nổi bật</h4>
+                <HastagSlider className={styles.ads_banner__wrapper} isAuto={true} numberShow={2}>
+                    {items.map((item ,index)=> (
+                        <div className={styles.hastag +" "+(currentTag==item ? styles.active: "")} onClick={() => {
+                            setCurrentTag(item);
+                        }}>
+                            #{item}
+                        </div>
+                    ))}
+                </HastagSlider>
+            </div>
+        )
+    }
+    
     
     return (
         <div className={styles.community_page}>
@@ -246,11 +270,11 @@ export default function Community() {
                         alt=""
                     />
                 </div>
-                <div className={styles.left_community}>
-                    {renderLeftSidebar(leftSidebarTop,leftSidebarBot)}
+                <div className={styles.left_community_wrapper}>
+                    <CommunityLeftSideBar Items ={leftSideBarItems} />
                 </div>
                 <div className={styles.right_community}>
-                    {renderHastags(hastags)}
+                    {renderRightSideBar(hastags,rightSideBarProducts )}
                 </div>
                 <div className={styles.community_main_content}>
                     <div className={styles.write_commment_box}>
@@ -261,9 +285,11 @@ export default function Community() {
                             alt=""
                         />
                         <div className={styles.comment_box} >
-                            <input type="text" id="write_comment" placeholder="Chia sẻ review sản phẩm và nhận xu"/>
+                            <input type="text" id="write_comment" placeholder="Dán link chia sẻ của bạn đã copy tại đây."/>
                         </div>
                     </div>
+                    {renderSlickTag(hastags)}
+                    {renderMenuMobile(leftSideBarItems)}
                     <div className={styles.community_show_post}>
                         <div className={styles.post_choose}>
                             <h4>Nổi bật</h4>

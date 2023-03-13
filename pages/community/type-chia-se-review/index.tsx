@@ -1,4 +1,3 @@
-
 import styles from '../../../styles/Community.module.scss';
 import Image from 'next/image';
 import Blog from '../../../components/Blog/Blog';
@@ -19,6 +18,7 @@ const currentUser = {
     joinDate: '11/11/2023'
 }
 
+
 const leftSideBarItems = {
     topItems : [
         {
@@ -37,7 +37,7 @@ const leftSideBarItems = {
     botItems: [
         {
             icon:'menu-user-name',
-            title:'Easplayers 3001'
+            title: currentUser.name,
         },
         {
             icon:'menu-star',
@@ -45,7 +45,6 @@ const leftSideBarItems = {
         },
     ]
 }
-
 
 const hastags = [
     "Kem chống nắng",
@@ -83,6 +82,12 @@ const menuOptions = [
         title: "Đáng mua nhất tuần"
     }
 ];
+
+const neededNote=  Array(6).fill(
+    {
+        text: 'Cherict chỉ xác nhận những chia sẻ được đặt ở chế độ Public, những chia sẻ.'
+    }
+);
 
 const renderLeftSidebar = function(topItems,botItems){
     let key =1;
@@ -134,68 +139,18 @@ const renderHastags = function (hastags) {
     )
 }
 
-const renderMenu = function(options) {
+const rendereNotes = function(notes) {
     return (
-
-        options.map((option) => (
-            <div className={styles.item}>
-                <Image 
-                    src={require('../../../public/test-avt.png')}              
-                    width={33}
-                    height={33}
-                    alt=""
-                />
-                <p>{option.title}</p>
-            </div>
-        ))
+        <ul>
+            {notes.map(note => (
+                <li>{note.text}</li>
+            ))}
+        </ul>
     )
 }
 
 
-const commentsData =[
-    {
-        user: {
-            name: 'Eastplayer',
-            avatar: ''
-        },
-        forUser: {
-            name: 'Super Volcanic Pore Clay Duo Set 380 mL',
-            avatar: ''
-        },
-        vote: 5,
-        date: '11/11/2021',
-        content:'Vừa nhận được hàng là mình dùng ngay, trải nghiệm rất đã, mới sử dụng nên chưa biết kết quả. Nhưng sản phẩm của halio khỏi bàn rồi mình.',
-        listImage: [
-            'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
-            'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
-        ]
-    },
-    {
-        user: {
-            name: 'Eastplayer',
-            avatar: ''
-        },
-        forUser: {
-            name: 'Super Volcanic Pore Clay Duo Set 380 mL',
-            avatar: ''
-        },
-        vote: 5,
-        date: '11/11/2021',
-        content:'Vừa nhận được hàng là mình dùng ngay, trải nghiệm rất đã, mới sử dụng nên chưa biết kết quả. Nhưng sản phẩm của halio khỏi bàn rồi mình.',
-        listImage: [
-            'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
-            'https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000',
-        ]
-    }
-]
 
-const renderComments = function(comments) {
-    return (
-        comments.map(comment => (
-            <Blog commentData={comment}/>
-        ))
-    );
-}
 export default function Community() {
     const renderRightSideBar = function (hastags,products) {
         return (
@@ -255,38 +210,30 @@ export default function Community() {
                     {renderRightSideBar(hastags,rightSideBarProducts )}
                 </div>
                 <div className={styles.community_main_content}>
-                    <div className={styles.write_commment_box}>
+                    <h3 className={styles.share_title}>Chia sẻ link đập hộp</h3>
+                    <div className={styles.share_box}>
                         <Image 
                             src={require('../../../public/test-avt.png')}              
-                            width={64}
-                            height={64}
+                            width={44}
+                            height={44}
                             alt=""
                         />
                         <div className={styles.user_info_wrapper}>
                             <h4>{currentUser.name}</h4>
-                            <p>{currentUser.address}- Tham gia {currentUser.joinDate}</p>
-                            <div className={styles.user_role}>#{currentUser.role}</div>
-                            <div className={styles.user_blog_wrapper}>
-                                <div className={styles.blog_block}>
-                                    <h3>{currentUser.blog.first}</h3>
-                                    <p>bài viết</p>
-                                </div>
-                                <div className={styles.blog_block}>
-                                    <h3>{currentUser.blog.second}</h3>
-                                    <p>bài viết</p>
-                                </div>
-                                <div className={styles.blog_block}>
-                                    <h3>{currentUser.blog.third}</h3>
-                                    <p>bài viết</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div className={styles.community_show_post}>
-                        <h4>Hoạt động nổi bật</h4>
-                    </div>
-                    <div className={styles.blog_comment_wrapper}>
-                        {renderComments(commentsData)}
+                    <div className={styles.share_container}>
+                        <input id='link-copy-area' type="text" placeholder='Dán link chia sẻ của bạn đã copy tại đây.'/>
+                        <div className={styles.get_link_guide}>
+                            <div className={styles.info}>i</div>
+                            <a href="#">Cách lấy link chia sẻ</a>
+                        </div>
+                        <div className={styles.note_container}>
+                            <h5>Những lưu ý cần thiết</h5>
+                            {rendereNotes(neededNote)}
+
+                            <button id='link-search'>Tìm kiếm</button>
+                        </div>
                     </div>
                 </div>
             </div>

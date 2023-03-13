@@ -1,6 +1,6 @@
 import styles from './Blog.module.scss';
 import Image from 'next/image';
-
+import IconLink from '../../components/IconLink/IconLink';
 export interface userData {
     name : string,
     avatar: string,
@@ -37,8 +37,6 @@ const renderListImage =function(images) {
     )
 }
 export default function Blog({commentData}) {
-
-
     let votes = Array(commentData.vote).fill('../../public/star.png');
     return (
         <div className={styles.blog_comment}>
@@ -73,6 +71,30 @@ export default function Blog({commentData}) {
             </div>
             <div className={styles.comment_images}>
                 {renderListImage(commentData.listImage) }
+            </div>
+            <div className={styles.reaction_wrapper}>
+                <div className={styles.love_icon}>
+                    <IconLink 
+                            key=''
+                            className=''
+                            href=''
+                            iconName='blog-loved'
+                            iconSize={18}
+                            iconBefore={true}
+                            text={commentData.loveNumber}
+                    />
+                </div>
+                <div className={styles.comment_icon}>
+                     <IconLink 
+                            key=''
+                            className=''
+                            href=''
+                            iconName='blog-comment'
+                            iconSize={18}
+                            iconBefore={true}
+                            text={commentData.commentNumbers}
+                    />
+                </div>
             </div>
         </div>
     );
