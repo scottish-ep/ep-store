@@ -60,7 +60,6 @@ const rightSideBarProducts = [
         imageSrc:''
     }
 ]
-
 const menuOptions = [
     {
         icon:"menu-tag",
@@ -83,38 +82,6 @@ const menuOptions = [
         title: "Đáng mua nhất tuần"
     }
 ];
-
-// const renderRightSideBar = function (hastags,products) {
-//     return (
-//         <>
-//             <div className={styles.hastag_title}>
-//                 Từ khoá nổi bật
-//             </div>
-//             {hastags.map((item,index) => (
-//                 <div className={styles.hastag}>
-//                     #{item}
-//                 </div>
-//             ))}
-//             <div className={styles.hastag_title}>
-//                 Từ khoá nổi bật
-//             </div>
-//             <a href="">Xem tất cả</a>
-//             <p>Đánh giá sản phẩm đã mua và chia sẻ link đập hộp để nhận thưởng lên đến 200 Cheri Xu</p>
-//             {products.map(product => (
-//                 <div className={styles.right_side_productt}>
-//                     <Image
-//                             src={require('../../public/left-flower.png')}              
-//                             width={40}
-//                             height={40}
-//                             alt=""
-//                     />
-//                     <h5>{product.name}</h5>
-//                 </div>
-//             ))}
-//         </>
-//     )
-// }
-
 
 
 const commentsData =[

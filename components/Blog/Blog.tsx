@@ -37,9 +37,6 @@ const renderListImage =function(images) {
     )
 }
 export default function Blog({commentData}) {
-
-    console.log(commentData);
-    
     let votes = Array(commentData.vote).fill('../../public/star.png');
     return (
         <div className={styles.blog_comment}>
