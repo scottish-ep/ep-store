@@ -23,7 +23,7 @@
             z-index: 1;
         }
         .right_community {
-            position: fixed;
+            position: absolute;
             left: calc(50vw + 527px/2 + 81px);
             .hastag_title {
                 font-weight: 800;
@@ -46,7 +46,7 @@
             }
         }
         .left_community {
-            position: fixed;
+            position: absolute;
             right:calc(50vw + 527px/2 + 81px);
             z-index: 4;
             h4 {
@@ -147,6 +147,7 @@
                 border-radius: 8px;
                 position: relative;
                 z-index: 4;
+                margin-top: 24px;
                 padding: 24px 24px 0;
                 .title_rating_wrapper {
                     width: 100%;
@@ -173,6 +174,7 @@
                     display: flex;
                     flex-direction: column;
                     flex-wrap: wrap;
+                    position: relative;
                     .product_rating_panel {
                         padding-bottom: 14px;
                         width: 100%;
@@ -180,6 +182,7 @@
                         flex-direction: row;
                         justify-content: space-between;
                         border-bottom: 1px solid #DADAE4;
+                        margin-bottom: 24px;
                         .product_info {
                             display: flex;
                             flex-direction: row;
@@ -203,6 +206,33 @@
                             padding: 8px 32px;
                             font-weight: 700;
                             font-size: 14px;
+                        }
+                    }
+                    .empty_rating_wrapper {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        height: 310px;
+                        .circle_empty {
+                            position: relative;
+                            width: 59px;
+                            height: 59px;
+                            border-radius: 50%;
+                            background-color:#F9D311;
+                            svg {
+                                position: absolute;
+                                width: 58px;
+                                height: 44px;
+                                top: 7px;
+                                left: 12px;
+                            }
+                        }
+                        p {
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
                         }
                     }
                 }

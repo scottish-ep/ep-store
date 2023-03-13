@@ -44,12 +44,12 @@ export default function Blog({commentData}) {
         <div className={styles.blog_comment}>
             <div className={styles.comment_header}>
                 <div className={styles.comment_header_left}>
-                {/* <Image 
+                <Image 
                     src={commentData.user.avatar}              
                     width={61}
                     height={61}
                     alt=""
-                /> */}
+                />
                 </div>
                 <div className={styles.comment_header_right}>
                     <div className={styles.comment_info}>

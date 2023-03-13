@@ -23,7 +23,7 @@
             z-index: 1;
         }
         .right_community {
-            position: fixed;
+            position: absolute
             left: calc(50vw + 527px/2 + 81px);
             .hastag_title {
                 font-weight: 800;
@@ -46,7 +46,7 @@
             }
         }
         .left_community {
-            position: fixed;
+            position: absolute
             right:calc(50vw + 527px/2 + 81px);
             z-index: 4;
             h4 {

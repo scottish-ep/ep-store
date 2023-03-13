@@ -18,17 +18,17 @@ const headerContent = {
   },
   quickNaviUpper: [
     {
-      iconName: 'black-left-cadet',
+      iconName: 'notification',
       text: "Thông báo",
       link: "#"
     },
     {
-      iconName: 'white-shipping',
+      iconName: 'transport',
       text: "Theo dõi đơn hàng",
       link: "#"
     },
     {
-      iconName: 'white-coin',
+      iconName: 'telephone',
       text: "032 583 9032",
       link: "#"
     }
@@ -158,10 +158,13 @@ const Header = () => {
           />
             
           <div className={styles.right_side__wrapper}>
-            <Link className={styles.item} href="#">
-              Đăng nhập / Đăng ký
-            </Link>
-
+           <IconLink 
+              className={styles.item}
+              href="#"
+              iconName="blog-loved"
+              iconSize={24}
+              iconBefore={true}
+            />        
             <IconLink 
               className={styles.item}
               href="#"
@@ -169,6 +172,10 @@ const Header = () => {
               iconSize={24}
               iconBefore={true}
             />
+            <Link className={styles.item} href="#">
+              Đăng nhập / Đăng ký
+            </Link>
+
           </div>
         </div>
 
@@ -185,9 +192,9 @@ const Header = () => {
     <div className={styles.mobile_menu}>
       <Link href="/">
         <Image 
-          src={require("../../public/logo.svg")}
-          width={100}
-          height={30}
+          src={require("../../public/cherict.png")}
+          width={118}
+          height={18}
           alt=""
         />
       </Link>
@@ -196,6 +203,13 @@ const Header = () => {
         <div onClick={() => setSearchBox(true)}>
           <Icon  icon="black-search" size={20}/>
         </div>
+        <IconLink 
+          className={styles.item}
+          href="#"
+          iconName="search-glass"
+          iconSize={24}
+          iconBefore={true}
+        />
         <IconLink 
           className={styles.item}
           href="#"

@@ -1,9 +1,11 @@
 import styles from '../../styles/Community.module.scss';
 import Image from 'next/image';
 import Blog from '../../components/Blog/Blog';
+import ProductItem from '../../components/ProductItem/ProductItem';
 import Icon from '../../components/Icon/Icon';
 import IconLink from '../../components/IconLink/IconLink';
 import React, { useState,useEffect } from 'react';
+
 
 const leftSidebarTop = [
     {
@@ -65,7 +67,7 @@ const renderLeftSidebar = function(topItems,botItems){
     let key =1;
     return (
         <>
-            <div className={styles.right_sidebar_top}>
+            <div className={styles.right_sidebar_top} >
                 {topItems.map((item,index) => (
                      <IconLink 
                         key={index}
@@ -111,33 +113,13 @@ const renderHastags = function (hastags) {
     )
 }
 
-const renderMenu = function(options) {
-    return (
-
-        options.map((option,index) => (
-
-            <div id="menu-option" onClick={handleClickToShow} className={styles.item} key={index}>
-               <IconLink 
-                        key={index}
-                        className=''
-                        href=''
-                        iconName={option.icon}
-                        iconSize={18}
-                        iconBefore={true}
-                        text=''
-                />
-                <p>{option.title + index}</p>
-            </div>
-        ))
-    )
-}
 
 
 const commentsData =[
     {
         user: {
             name: 'Eastplayer',
-            avatar: 'https://kiemtientuweb.com/ckfinder/userfiles/images/avatar-fb/avatar-fb-1.jpg'
+            avatar: ''
         },
         forUser: {
             name: 'Super Volcanic Pore Clay Duo Set 380 mL',
@@ -154,7 +136,7 @@ const commentsData =[
     {
         user: {
             name: 'Eastplayer',
-            avatar: 'https://kiemtientuweb.com/ckfinder/userfiles/images/avatar-fb/avatar-fb-1.jpg'
+            avatar: ''
         },
         forUser: {
             name: 'Super Volcanic Pore Clay Duo Set 380 mL',
@@ -170,6 +152,15 @@ const commentsData =[
     }
 ]
 
+const productData = Array(6).fill({
+    name: 'Kem dưỡng da chiết xuất hoa lan...',
+    branch: 'LANEIGE',
+    sale: 40,
+    vote: 5,
+    quanityVote : 12,
+    price: 950000,
+})
+
 const renderComments = function(comments) {
     return (
         comments.map(comment => (
@@ -178,28 +169,64 @@ const renderComments = function(comments) {
     );
 }
 
+const renderProducts = function(products) {
+    return (
+        <div className={styles.product_panel_container}>
+            {products.map(product => (
+                <div className={styles.product_panel_wrapper}>
+                    <ProductItem props={product}/>
+                </div>
+            ))}
+        </div>
+    )
+}
 
-const handleClickToShow = function(e) {
-    let menuOpt = document.querySelectorAll("#menu-option");
-    menuOpt.forEach(e => {
-        e.classList.remove(styles.active);
-    })
-    e.target.classList.add(styles.active)
-    console.log(e.target.getAttribute("key"));
-    
-};
 
-// useEffect(() => {
-    
-// });
 export default function Community() {
     const [currentOpt,setCurrentOpt] = useState(1);
-    useEffect(() => {
-        const handleClickRating = e => {
-            console.log(e.target.index);
-            
-        }
-    },[currentOpt])
+    const [currentTag,setCurrentTag] = useState('');
+    const renderMenu = function(options) {
+        return (
+    
+            options.map((option,index) => (
+    
+                <div className={styles.item + " " + (currentOpt==index ? styles.active : "")}
+                onClick={(e) => {
+                    setCurrentOpt(index);
+                }} >
+                   <IconLink 
+                            key={index}
+                            className=''
+                            href=''
+                            iconName={option.icon}
+                            iconSize={18}
+                            iconBefore={true}
+                            text=''
+                    />
+                    <p>{option.title + index}</p>
+                </div>
+            ))
+        )
+    }
+    
+    const renderHastags = function (hastags) {
+        return (
+            <>
+                <div className={styles.hastag_title}>
+                    Từ khoá nổi bật
+                </div>
+                {hastags.map((item,index) => (
+                    <div className={styles.hastag + " " + (currentTag==item ? styles.active : "")} 
+                    onClick={(e) => {
+                        setCurrentTag(item);
+                    }}>
+                        #{item}
+                    </div>
+                ))}
+            </>
+        )
+    }
+    
     return (
         <div className={styles.community_page}>
             <div className={styles.community_page_wrapper}>
@@ -246,7 +273,11 @@ export default function Community() {
                         </div>
                     </div>
                     <div className={styles.blog_comment_wrapper}>
-                        <Blog commentData={commentsData[0]}/>
+                       {currentOpt == 0 && renderComments(commentsData)}
+                       {currentOpt == 1 && renderComments(commentsData)}
+                       {currentOpt == 2 && renderComments(commentsData)}
+                       {currentOpt == 3 && renderComments(commentsData)}
+                       {currentOpt == 4 && renderProducts(productData)}
                     </div>
                 </div>
             </div>
