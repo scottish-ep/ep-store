@@ -1,4 +1,4 @@
-import styles from '../../../styles/Community-Account.module.scss';
+import styles from '../../../styles/Community.module.scss';
 import Image from 'next/image';
 import Blog from '../../../components/Blog/Blog';
 import Icon from '../../../components/Icon/Icon';
@@ -132,11 +132,11 @@ const commentsData =[
     {
         user: {
             name: 'Eastplayer',
-            avatar: 'https://kiemtientuweb.com/ckfinder/userfiles/images/avatar-fb/avatar-fb-1.jpg'
+            avatar: ''
         },
         forUser: {
             name: 'Super Volcanic Pore Clay Duo Set 380 mL',
-            avatar: 'https://kiemtientuweb.com/ckfinder/userfiles/images/avatar-fb/avatar-fb-1.jpg'
+            avatar: ''
         },
         vote: 5,
         date: '11/11/2021',
@@ -149,11 +149,11 @@ const commentsData =[
     {
         user: {
             name: 'Eastplayer',
-            avatar: 'https://kiemtientuweb.com/ckfinder/userfiles/images/avatar-fb/avatar-fb-1.jpg'
+            avatar: ''
         },
         forUser: {
             name: 'Super Volcanic Pore Clay Duo Set 380 mL',
-            avatar: 'https://kiemtientuweb.com/ckfinder/userfiles/images/avatar-fb/avatar-fb-1.jpg'
+            avatar: ''
         },
         vote: 5,
         date: '11/11/2021',

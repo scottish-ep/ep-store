@@ -1,4 +1,4 @@
-import styles from '../../../styles/Community-RatingProduct.module.scss';
+import styles from '../../../styles/Community.module.scss';
 import Image from 'next/image';
 import Blog from '../../../components/Blog/Blog';
 import Icon from '../../../components/Icon/Icon';
